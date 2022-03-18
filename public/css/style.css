@@ -1,0 +1,83 @@
+/* Typography */
+body, ul, li, p, a, label, input, div {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+}
+
+.h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 48px !important;
+  font-weight: 200 !important;
+}
+.h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px !important;
+  font-weight: 300;
+}
+.h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px !important;
+}
+
+
+.navbar{
+    background-color: #2F9C67 ;
+}
+
+.navbar img {
+    height:60px;
+}
+
+.imageCard
+{
+    height: 300px;
+    object-fit: cover;
+}
+
+.imageCarousel
+{
+    height: 500px;
+    object-fit: cover;
+}
+
+.imageDetailProduct
+{
+    height: 600px;
+    object-fit: cover;
+}
+
+.imgprofile
+{
+    max-width:100%;
+}
+
+.msgSupport{
+    color: rgb(118, 118, 118);
+}
+
+.namePanier{
+font-weight: 300;
+
+}
+
+#champs{
+    font-size: 35px;
+}
+
+.text-medium-grey
+{
+    color: red;
+}
+
+.height_carrousel .img img
+{
+    width: auto;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.typoRegisterConstraint p{
+    font-size: 15px;
+    color: rgb(0, 255, 0);
+}

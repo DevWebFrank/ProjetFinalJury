@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+	<div class="container py-5">
+
+		<div class="row">
+			{% include "_messages_flash.html.twig" %}
+
+			<div class="col-12 ">
+				<a class="btn btn-secondary" href="{{ path('app_register') }}">Pas encore de compte ? Créer un compte</a>
+			</div>
+
+			<div class="col-sm-12 mt-3">
+				<div class="card">
+					<div class="card-header">
+						<h5 class="card-title">Identification</h5>
+					</div>
+					<div class="card-body">
+						<form method="post">
+							{% if error %}
+								<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+							{% endif %}
+							<!-- <label for="inputEmail">Email</label> -->
+							<input
+							type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="email" required autofocus placeholder="Adresse mail*">
+
+
+							<!-- <label for="inputPassword">Mot de passe</label> -->
+
+							<input type="password" name="password" id="inputPassword" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="current-password" required placeholder="Mot de passe*">
+
+
+							<input
+							type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+							<!--<p class="fw-lighter fs-6">Le mot de passe doit faire au moins 6 caractères.</p>-->
+							<div>
+								<p class="fw-lighter fst-italic fs-6">
+									* champs obligatoire</p>
+							</div>
+							<button class="btn btn-lg btn-dark btn-sm mt-3" type="submit">
+								S'identifier
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}

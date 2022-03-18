@@ -1,0 +1,94 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<section>
+		<div class="container py-5">
+			<div class="row">
+				<div class="col-12 mb-3">
+					<h3 class="text-center">Mon panier</h3>
+
+
+				</div>
+				{% include "_messages_flash.html.twig" %}
+				<div class="col-12 mb-3">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Produit</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+								<th scope="col">Prix Unitaire</th>
+								<th scope="col">Quantité</th>
+								<th scope="col">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for item in detailProducts %}
+								<tr>
+									<th>
+										<div class="d-flex align-items-center">
+											<img src="{{ item.product.imagePath }}" alt="mon panier" style="height:80px;object-fit:contain;">
+											<div class="d-flex flex-column align-items-center text-truncate px-2">
+
+												<p>{{ item.product.name }}
+												</p>
+											</div>
+										</div>
+									</th>
+									<th>
+										<a class="btn btn-warning btn-sm text-white" href="{{ path('cart_remove_product',{'id': item.product.id }) }}">Supprimer</a>
+									</th>
+									<th>
+										<a href="{{ path('cart_remove_product',{'id': item.product.id }) }}">
+											<i class="fa-regular fa-circle-xmark btn-light mt-3 ms-5"></i>
+										</a>
+
+										<img class="btn px-2" type="submit" href="{{ path('cart_remove_product',{'id': item.product.id }) }}" src="{{ asset('img/btn_supp.jpg') }}" style="height:30px;">
+
+									</th>
+
+									<td>{{ item.product.price | priceEuro }}</td>
+
+									<td>
+										<a class="btn btn-dark" href="{{ path('cart_decrement_product',{'id' : item.product.id }) }}">
+											<i class="fas fa-minus-circle"></i>
+										</a>
+										<button class="btn btn-light">
+											{{ item.qty }}</button>
+										<a class="btn btn-dark" href="{{ path('cart_add',{'id' : item.product.id }) }}?routeToRedirect=panier">
+											<i class="fas fa-plus-circle"></i>
+										</a>
+									</td>
+
+									<td>{{ item.total | priceEuro }}</td>
+
+								</tr>
+
+							{% endfor %}
+							<tr>
+								<th colspan="4"></th>
+								<th>
+									<p>
+										<strong>Sous total</strong>
+									</p>
+								</th>
+								<th>
+									<p>
+										<strong>{{ totalPrixPanier | priceEuro}}</strong>
+									</p>
+								</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-12 d-flex justify-content-md-end">
+					<a href="{{ path('home') }}" class="btn btn-dark btn-sm mx-3">Continuer mes achats</a>
+					<a href="{{ path('boutique_commande_recap') }}" class="btn btn-success btn-sm ">Valider votre panier</a>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
