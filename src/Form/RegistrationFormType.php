@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength;
 
 
 class RegistrationFormType extends AbstractType
@@ -103,17 +104,24 @@ class RegistrationFormType extends AbstractType
                     'autocomplete' => 'new-password',
                     'placeholder' => 'Mot de passe*'
                 ],
-                /*'constraints' => [
+                'constraints' => [
                     new NotBlank([
                         'message' => 'Vous devez renseigner un MOTO mot de passe.',
                     ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Le mot de passe doit faire au moins {{ limit }} caracteres',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ], */
+                    // new Length([
+                    //     'min' => 6,
+                    //    'minMessage' => 'Le mot de passe doit faire au moins {{ limit }} caracteres',
+                    // max length allowed by Symfony for security reasons
+                    //   'max' => 4096,
+                    //]),
+                    new PasswordStrength(
+                        [
+                            'minLength' => 8,
+                            'tooShortMessage' => 'Le mot de passe doit contenir 8 caractéres.',
+                            'minStrength' => 4,
+                            'message' => 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.',
+                        ])
+                ],
 
                 'first_options' => [
                     'label' => 'Mot de passe',
@@ -135,6 +143,7 @@ class RegistrationFormType extends AbstractType
                     'constraints' => [
                         new NotBlank([
                             'message' => 'Vous devez confirmer votre mot de passe',
+                        
                         ]),
                     ],
                 ],
