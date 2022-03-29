@@ -101,11 +101,6 @@ footer {
     flex-direction: column;
 }
 
-.content-footer li {  
-    padding: 5vw 10vw;
-    text-align: justify;
-}
-
 .content-footer {
     font-size: 10 px;
     padding: 30px 0px 40px;
@@ -120,7 +115,7 @@ footer {
 }
 
 .bloc {
-    margin: 0px 20px 0px;
+    margin: 0px 25px;
 }
 
 .footer-contact h3,
@@ -128,7 +123,24 @@ footer {
 .footer-apropos h3,
 .footer-media h3 {
     font-size: 20px;
-    padding-bottom: 5px;   
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 5px;
+    left: 0;
+    bottom: 0;
+    display: block;
+    border-bottom: 2px solid #2F9C67;
+      
+}
+
+.footer-contact{
+    position: relative;
+}
+
+.footer-contact:after {
+    position: absolute;
+    
 }
 
 .footer-contact ul,
@@ -176,12 +188,12 @@ footer {
 }
 
 .liste-media img {
-    width: 30px;
+    width: 20px;
     margin: 5px 10px;
 }
 
 .liste-media a {
-    font-size: 25px;
+    font-size: 30px;
     text-decoration: none;
     color: #444;
     display: flex;
