@@ -1,3 +1,9 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* Typography */
 body, ul, li, p, a, label, input, div {
   font-family: 'Josefin Sans', sans-serif;
@@ -67,7 +73,7 @@ font-weight: 300;
 
 .text-medium-grey
 {
-    color: red;
+    color: grey;
 }
 
 .height_carrousel .img img
@@ -79,5 +85,105 @@ font-weight: 300;
 
 .typoRegisterConstraint p{
     font-size: 15px;
-    color: rgb(0, 255, 0);
+    color: grey;
+} 
+
+
+/* FOOTER */
+
+footer {
+    /* flex-shrink: 0; */
+    border-top: 1px solid #000;
+    width: 100%;
+    background: #f1f1f1;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-footer li {  
+    padding: 5vw 10vw;
+    text-align: justify;
+}
+
+.content-footer {
+    font-size: 10 px;
+    padding: 30px 0px 40px;
+    width: auto;
+    margin: 0 auto;
+    display:flex;
+    flex-wrap: wrap;
+     /* grow shrink basis */
+    flex: 1 0 auto;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.bloc {
+    margin: 0px 20px 0px;
+}
+
+.footer-contact h3,
+.footer-client h3,
+.footer-apropos h3,
+.footer-media h3 {
+    font-size: 20px;
+    padding-bottom: 5px;   
+}
+
+.footer-contact ul,
+.footer-client ul,
+.footer-apropos ul {
+    padding: 5px 0;
+}
+
+/* contact */
+.liste-contact li {
+    padding: 2px 0px;
+}
+
+/* service */
+.liste-contact,
+.liste-client,
+.liste-apropos,
+.liste-media {
+    list-style-type: none;
+}
+
+.list-contact li,
+.liste-client li,
+.liste-apropos li,
+.liste-media li {
+    padding: 2px 0;
+}
+ 
+.liste-client a,
+.liste-apropos a,
+.liste-media a{
+    text-decoration: none;
+    color : #888;
+}
+
+.liste-client li a:hover,
+.liste-apropos li a:hover {
+    color: #000
+}
+
+/* media */
+.liste-media {
+    position: relative;
+    right: 42px;
+}
+
+.liste-media img {
+    width: 30px;
+    margin: 5px 10px;
+}
+
+.liste-media a {
+    font-size: 25px;
+    text-decoration: none;
+    color: #444;
+    display: flex;
+    align-items: center;
 }
