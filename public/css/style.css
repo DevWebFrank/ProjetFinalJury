@@ -126,22 +126,25 @@ footer {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding-bottom: 5px;
+    padding-bottom: 5px;      
+}
+
+.footer-heading{
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-heading:after {
+    content: '';
+    width: 35px;
+    border-bottom: 1px solid #FFF;
+    position: absolute;
     left: 0;
     bottom: 0;
     display: block;
-    border-bottom: 2px solid #2F9C67;
-      
+    border-bottom: 2px solid #1bbc9b;
 }
 
-.footer-contact{
-    position: relative;
-}
-
-.footer-contact:after {
-    position: absolute;
-    
-}
 
 .footer-contact ul,
 .footer-client ul,
