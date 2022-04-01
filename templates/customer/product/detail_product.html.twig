@@ -7,20 +7,23 @@
 			<div class="row">
 				{% include "_messages_flash.html.twig" %}
 
-				<div class="col-sm-12 col-md-6">
+				<div class="col-sm-12 col-md-4">
 
 					<div class="card">
-						<img src="{{ product.imagePath }}" class="card-img-top imageDetailProduct" alt="image_category">
+<img src="{{ product.imagePath }}" class="card-img-top imageDetailProduct" alt="image_category">
+
+
 					</div>
 
 				</div>
-				<div class="col-sm-12 col-md-6">
+				<div class="col-sm-12 col-md-8">
 
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">{{ product.name }}</h5>
 							<p>{{ product.price | priceEuro }}</p>
-							<a href="{{ path('cart_add',{ 'id' : product.id } ) }}" class="btn btn-primary w-100">Ajouter au panier</a>
+							{# <p>{{ product.description}}</p> #}
+							<a href="{{ path('cart_add',{ 'id' : product.id } ) }}" class="btn btn-primary">Ajouter au panier</a>
 						</div>
 					</div>
 
@@ -43,7 +46,8 @@
 					<div class="col-sm-12 col-md-6 col-lg-3 mt-3">
 
 						<div class="card">
-							<img src="{{ product.imagePath }}" class="card-img-top imageCard" alt="image_category">
+							<img src="{{ product.imagePath }}" class="card-img-top imageCardOtherProduct" alt="image_category">
+
 							<div class="card-body">
 								<h5 class="card-title">{{ product.name|u.truncate('20', '...',false) }}</h5>
 								<p>{{ product.price | priceEuro }}</p>

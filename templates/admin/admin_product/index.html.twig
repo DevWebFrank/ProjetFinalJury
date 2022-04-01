@@ -9,7 +9,6 @@
 
 			{% include "_messages_flash.html.twig" %}
 
-
 			<div class="col-12 d-flex align-items-center justify-content-between">
 				<h3>Liste des produits</h3>
 				<a class="btn btn-primary" href="{{ path('admin_product_new') }}">Ajouter</a>
@@ -22,13 +21,15 @@
 
 			{% for product in products %}
 
-				<div class="col-sm-12 col-md-6 col-lg-4">
+				<div class="col-sm-12 col-md-6 col-lg-4 mt-3">
 
 					<div class="card" style="width: 18rem;">
-						<img src="{{ product.imagePath }}" class="card-img-top imageCard" alt="image_product">
+						<img src="{{ product.imagePath }}" class="card-img-top imageCardProduct" alt="image_product">
 						<div class="card-body">
-							<h5 class="card-title">{{ product.name | upper}}</h5>
+							<h5 class="card-title">{{ product.name | u.truncate('20', '...',false)}}</h5>
 							<p>{{ product.price | priceEuro }}</p>
+							<p>Catégorie : {{ product.category }}</p>
+
 							<a href="{{ path('admin_product_edit',{ 'id' : product.id} ) }}" class="btn btn-primary w-100">Manager</a>
 
 						</div>

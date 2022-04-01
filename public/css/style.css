@@ -1,92 +1,145 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 /* Typography */
-body, ul, li, p, a, label, input, div {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 18px !important;
-  font-weight: 300 !important;
+body,
+ul,
+li,
+p,
+a,
+label,
+input,
+div {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px !important;
+    font-weight: 300 !important;
 }
 
 .h1 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 48px !important;
-  font-weight: 200 !important;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 48px !important;
+    font-weight: 200 !important;
 }
+
 .h2 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 30px !important;
-  font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px !important;
+    font-weight: 300;
 }
+
 .h3 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 22px !important;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 22px !important;
 }
 
 
-.navbar{
-    background-color: #2F9C67 ;
+.navbar {
+    background-color: #2F9C67;
 }
 
 .navbar img {
-    height:60px;
+    height: 60px;
 }
 
-.imageCard
-{
+.imageCategory {
+    padding-top: 15px;
+    height: 325px;
+    object-fit: contain;
+}
+
+.imageCardProduct{
+    object-fit: contain;
+    min-height: 250px;
+    padding-top: 20px;
+}
+
+.imageDetailProduct {
+    object-fit: contain;
+    min-height: 300px;
+    padding-top: 20px;
+}
+
+.imageCardOtherProduct{
+    object-fit: contain;
+    max-height: 200px;
+    padding-top: 20px;
+}
+
+.imageCard {
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
+    padding-top: 15px;
 }
 
-.imageCarousel
-{
+.imageCard img {
+    height: 300px;
+    object-fit: contain;
+    padding-top: 15px;
+}
+
+.imageCarousel {
     height: 500px;
     object-fit: cover;
 }
 
-.imageDetailProduct
-{
-    height: 600px;
-    object-fit: cover;
+.imageDetailProduct {
+    padding-top: 20px;
+    height: 250px;
+    object-fit: contain;
 }
 
-.imgprofile
-{
-    max-width:100%;
+.imgprofile {
+    max-width: 100%;
 }
 
-.msgSupport{
+.msgSupport {
     color: rgb(118, 118, 118);
 }
 
-.namePanier{
-font-weight: 300;
+.namePanier {
+    font-weight: 300;
 
 }
 
-#champs{
+#champs {
     font-size: 35px;
 }
 
-.text-medium-grey
-{
+.text-medium-grey {
     color: grey;
 }
 
-.height_carrousel .img img
-{
+.height_carrousel .img img {
     width: auto;
     max-height: 400px;
     overflow: hidden;
 }
 
-.typoRegisterConstraint p{
+.typoRegisterConstraint p {
     font-size: 15px;
     color: grey;
-} 
+}
+
+
+.textRaja {
+    text-align: center;
+    color: red;
+    font-weight: bold !important;
+}
+
+/* HOME  */
+
+.card-title {
+    /* POUR minimaliser le texte sans qu'il sorte de la div*/
+    /* text-overflow: ellipsis; */
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 
 /* FOOTER */
@@ -106,9 +159,9 @@ footer {
     padding: 30px 0px 40px;
     width: auto;
     margin: 0 auto;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-     /* grow shrink basis */
+    /* grow shrink basis */
     flex: 1 0 auto;
     justify-content: center;
     align-items: flex-start;
@@ -126,10 +179,10 @@ footer {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding-bottom: 5px;      
+    padding-bottom: 5px;
 }
 
-.footer-heading{
+.footer-heading {
     position: relative;
     padding-bottom: 12px;
 }
@@ -139,8 +192,8 @@ footer {
     width: 35px;
     border-bottom: 1px solid #FFF;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: 0px;
+    bottom: 0px;
     display: block;
     border-bottom: 2px solid #1bbc9b;
 }
@@ -171,12 +224,12 @@ footer {
 .liste-media li {
     padding: 2px 0;
 }
- 
+
 .liste-client a,
 .liste-apropos a,
-.liste-media a{
+.liste-media a {
     text-decoration: none;
-    color : #888;
+    color: #888;
 }
 
 .liste-client li a:hover,
@@ -201,4 +254,9 @@ footer {
     color: #444;
     display: flex;
     align-items: center;
+}
+
+/* reset password */
+.resetText {
+    font-size: 12px !important;
 }
