@@ -34,7 +34,7 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * Display & process form to request a password reset.
+     * Afficher et process la demande de réinitialisation du mot de passe.
      */
     #[Route('', name: 'app_forgot_password_request')]
     public function request(Request $request, MailerInterface $mailer): Response
@@ -55,7 +55,7 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * Confirmation page after a user has requested a password reset.
+     * Page de confirmation aprés que l'utilisateur ait demandé la réinitialisation de son mot de passe.
      */
     #[Route('/check-email', name: 'app_check_email')]
     public function checkEmail(): Response
@@ -101,15 +101,15 @@ class ResetPasswordController extends AbstractController
             return $this->redirectToRoute('app_forgot_password_request');
         }
 
-        // The token is valid; allow the user to change their password.
+        // le token est valide permettant au user de changer son mot de passe
         $form = $this->createForm(ChangePasswordFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // A password reset token should be used only once, remove it.
+            // le token de réinitialisation ne peut être utilisé qu'une fois, aprés on le supprime.
             $this->resetPasswordHelper->removeResetRequest($token);
 
-            // Encode(hash) the plain password, and set it.
+            // encoder le mot de passse.
             $encodedPassword = $userPasswordHasher->hashPassword(
                 $user,
                 $form->get('plainPassword')->getData()
@@ -118,7 +118,7 @@ class ResetPasswordController extends AbstractController
             $user->setPassword($encodedPassword);
             $this->entityManager->flush();
 
-            // The session is cleaned up after the password has been changed.
+            // la session est nettoyé apres la modification du mot de passe.
             $this->cleanSessionAfterReset();
 
             return $this->redirectToRoute('home');
@@ -146,11 +146,6 @@ class ResetPasswordController extends AbstractController
             // If you want to tell the user why a reset email was not sent, uncomment
             // the lines below and change the redirect to 'app_forgot_password_request'.
             // Caution: This may reveal if a user is registered or not.
-            //
-            // $this->addFlash('reset_password_error', sprintf(
-            //     'There was a problem handling your password reset request - %s',
-            //     $e->getReason()
-            // ));
 
             return $this->redirectToRoute('app_check_email');
         }
@@ -163,10 +158,10 @@ class ResetPasswordController extends AbstractController
             ->context([
                 'resetToken' => $resetToken,
             ]);
-
+        // on envoie l'email
         $mailer->send($email);
 
-        // Store the token object in session for retrieval in check-email route.
+        // stocker le token dans la session pour l'utiliser dans la verification des e-mails.
         $this->setTokenObjectInSession($resetToken);
 
         return $this->redirectToRoute('app_check_email');

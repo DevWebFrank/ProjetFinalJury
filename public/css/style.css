@@ -37,7 +37,6 @@ div {
     font-size: 22px !important;
 }
 
-
 .navbar {
     background-color: #2F9C67;
 }
@@ -52,7 +51,7 @@ div {
     object-fit: contain;
 }
 
-.imageCardProduct{
+.imageCardProduct {
     object-fit: contain;
     min-height: 250px;
     padding-top: 20px;
@@ -64,7 +63,7 @@ div {
     padding-top: 20px;
 }
 
-.imageCardOtherProduct{
+.imageCardOtherProduct {
     object-fit: contain;
     max-height: 200px;
     padding-top: 20px;
