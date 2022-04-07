@@ -7,22 +7,32 @@
 			<div class="row">
 				{% include "_messages_flash.html.twig" %}
 
-				<div class="col-sm-12 col-md-4">
+				<div class="col-12">
+					<div class="col-12 d-flex justify-content-end">
+						<a class="btn btn-primary" href="{{ path('home') }}">
 
-					<div class="card">
-<img src="{{ product.imagePath }}" class="card-img-top imageDetailProduct" alt="image_category">
 
-
+							<span class="btn-label">
+								<i class="fa fa-chevron-left"></i>
+							</span>Retour</a>
 					</div>
 
 				</div>
-				<div class="col-sm-12 col-md-8">
+
+				<div class="col-sm-12 col-md-4 mt-2">
+
+					<div class="card">
+						<img src="{{ product.imagePath }}" class="card-img-top imageDetailProduct" alt="image_category">
+					</div>
+
+				</div>
+				<div class="col-sm-12 col-md-8 mt-2">
 
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">{{ product.name }}</h5>
 							<p>{{ product.price | priceEuro }}</p>
-							{# <p>{{ product.description}}</p> #}
+							<p>{{ product.description}}</p>
 							<a href="{{ path('cart_add',{ 'id' : product.id } ) }}" class="btn btn-primary">Ajouter au panier</a>
 						</div>
 					</div>

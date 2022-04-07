@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProduitType extends AbstractType
 {
@@ -41,6 +42,9 @@ class ProduitType extends AbstractType
                 'placeholder' => '-- Choisir --',
                 'required' => false,
                 'class' => Category::class
+            ])
+             ->add('description', TextareaType::class, [
+                'label' => 'Descriptif du produit',
             ]);
     }
 

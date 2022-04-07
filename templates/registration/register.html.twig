@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Inscription
 {% endblock %}
 
 {% block body %}
@@ -20,51 +20,51 @@
 					</div>
 
 					<!-- ESSAI DE FORMULAIRE IDEM LOGIN													
-																									<div class="card-body">	
-																									<form method="post">
-																									{# {% if error %}
-																									{% endif %}																																											
-																									<input type="text" value="{{ name }}" name="firstName" id="#" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="#" required autofocus placeholder="Adresse mail*">																							
-																									</form>
-																									{{ form_start(registrationForm) }}
-																									{{ form_row(registrationForm.firstName) }}
-																										{{ form_row(registrationForm.name) }}
-																										{{ form_row(registrationForm.birthDay) }}
-																									{{ form_row(registrationForm.telephone) }}
-																									{{ form_row(registrationForm.email) }}
-																									{{ form_row(registrationForm.plainPassword) }}
-																																																																									
-																									<p class="fw-lighter fst-italic fs-6">
-																									* champs obligatoire</p>
-																																																																									
-																																																																									
-																									<p class="fw-lighter fs-6 text-medium-grey">Votre mot de passe doit contenir :</p>
-																									<div>
-																									<p class="fw-lighter fs-6 text-medium-grey">
-																									<i class="fas fa-check-circle"></i>
-																									entre 8 et 40 caractères.</p>
-																									</div>
-																									<div>
-																									<p class="fw-lighter fs-6 text-medium-grey">
-																									<i class="fas fa-check-circle"></i>
-																									au moins une lettre majuscule</p>
-																									</div>
-																									<div>
-																									<p class="fw-lighter fs-6 text-medium-grey">
-																									<i class="fas fa-check-circle"></i>
-																									au moins un chiffre</p>
-																									</div>
-																									<div>
-																									<p class="fw-lighter fs-6 text-medium-grey">
-																									<i class="fas fa-check-circle"></i>
-																									au moins un caractére spécial</p>
-																									</div>
-																									{{ form_row(registrationForm.agreeTerms) }}
-																									<button type="submit" class="btn btn-primary mt-3">S'inscrire</button>
-																									{{ form_end(registrationForm) }}
-																									
-																									</div> #}
-																									-->
+																														<div class="card-body">	
+																														<form method="post">
+																														{# {% if error %}
+																														{% endif %}																																											
+																														<input type="text" value="{{ name }}" name="firstName" id="#" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="#" required autofocus placeholder="Adresse mail*">																							
+																														</form>
+																														{{ form_start(registrationForm) }}
+																														{{ form_row(registrationForm.firstName) }}
+																															{{ form_row(registrationForm.name) }}
+																															{{ form_row(registrationForm.birthDay) }}
+																														{{ form_row(registrationForm.telephone) }}
+																														{{ form_row(registrationForm.email) }}
+																														{{ form_row(registrationForm.plainPassword) }}
+																																																																														
+																														<p class="fw-lighter fst-italic fs-6">
+																														* champs obligatoire</p>
+																																																																														
+																																																																														
+																														<p class="fw-lighter fs-6 text-medium-grey">Votre mot de passe doit contenir :</p>
+																														<div>
+																														<p class="fw-lighter fs-6 text-medium-grey">
+																														<i class="fas fa-check-circle"></i>
+																														entre 8 et 40 caractères.</p>
+																														</div>
+																														<div>
+																														<p class="fw-lighter fs-6 text-medium-grey">
+																														<i class="fas fa-check-circle"></i>
+																														au moins une lettre majuscule</p>
+																														</div>
+																														<div>
+																														<p class="fw-lighter fs-6 text-medium-grey">
+																														<i class="fas fa-check-circle"></i>
+																														au moins un chiffre</p>
+																														</div>
+																														<div>
+																														<p class="fw-lighter fs-6 text-medium-grey">
+																														<i class="fas fa-check-circle"></i>
+																														au moins un caractére spécial</p>
+																														</div>
+																														{{ form_row(registrationForm.agreeTerms) }}
+																														<button type="submit" class="btn btn-primary mt-3">S'inscrire</button>
+																														{{ form_end(registrationForm) }}
+																														
+																														</div> #}
+																														-->
 
 					<div class="card-body">
 						<div class="col-6">
@@ -84,40 +84,41 @@
 							<p class="fw-light fs-5 text-medium-grey ">Votre mot de passe doit contenir :</p>
 							<div class="typoRegisterConstraint">
 								<p class="fw-lighter text-medium-grey ">
-								<i class="fas fa-check-circle"></i>
-								entre 8 et 40 caractères.</p>
+									<i class="fas fa-check-circle"></i>
+									entre 8 et 40 caractères.</p>
+							</div>
+							<div class="typoRegisterConstraint">
+								<p class="fw-lighter text-medium-grey ">
+									<i class="fas fa-check-circle"></i>
+									au moins une lettre majuscule</p>
+							</div>
+							<div class="typoRegisterConstraint">
+								<p class="fw-lighter text-medium-grey">
+									<i class="fas fa-check-circle"></i>
+									au moins un chiffre</p>
+							</div>
+							<div class="typoRegisterConstraint">
+								<p class="fw-lighter text-medium-grey">
+									<i class="fas fa-check-circle"></i>
+									au moins un caractére spécial</p>
+							</div>
+							{{ form_row(registrationForm.agreeTerms) }}
+							<button type="submit" class="btn btn-primary mt-3">S'inscrire</button>
+							{{ form_end(registrationForm) }}
+
 						</div>
-						<div class="typoRegisterConstraint">
-							<p class="fw-lighter text-medium-grey ">
-							<i class="fas fa-check-circle"></i>
-							au moins une lettre majuscule</p>
 					</div>
-					<div class="typoRegisterConstraint">
-						<p class="fw-lighter text-medium-grey">
-						<i class="fas fa-check-circle"></i>
-						au moins un chiffre</p>
+
+					<!-- <div class="card">
+									<div class="card-title">
+										<div class="card-body">
+											<div class="col-6">
+												<h3>Coucou</h3>
+											</div>
+										</div>
+									</div>
+								</div> -->@
 				</div>
-				<div class="typoRegisterConstraint">
-					<p class="fw-lighter text-medium-grey">
-					<i class="fas fa-check-circle"></i>
-					au moins un caractére spécial</p>
 			</div>
-			{{ form_row(registrationForm.agreeTerms) }}
-			<button type="submit" class="btn btn-primary mt-3">S'inscrire</button>
-			{{ form_end(registrationForm) }}
-
 		</div>
-	</div>
-
-	<!-- <div class="card">
-				<div class="card-title">
-					<div class="card-body">
-						<div class="col-6">
-							<h3>Coucou</h3>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
-
-</div></div></div>{% endblock %}
+	{% endblock %}

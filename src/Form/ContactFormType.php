@@ -28,6 +28,7 @@ class ContactFormType extends AbstractType
             ])
 
             ->add('message', TextareaType::class, [
+                'label' =>'Votre message',
                 'attr' => ['rows' => 6],
             ])
 

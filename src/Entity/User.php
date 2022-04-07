@@ -21,7 +21,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
+    // unique: true = il ne peut pas avoir 2 emails identiques dans les users 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 

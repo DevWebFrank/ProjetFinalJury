@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
+{% block title %}Connection
 {% endblock %}
 
 {% block body %}
 	<div class="container py-5">
-
 		<div class="row">
 			{% include "_messages_flash.html.twig" %}
 
@@ -27,12 +26,8 @@
 							<input
 							type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="email" required autofocus placeholder="Adresse mail*">
 
-
 							<!-- <label for="inputPassword">Mot de passe</label> -->
-
 							<input type="password" name="password" id="inputPassword" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="current-password" required placeholder="Mot de passe*">
-
-
 							<input
 							type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 							<!--<p class="fw-lighter fs-6">Le mot de passe doit faire au moins 6 caractères.</p>-->
@@ -44,14 +39,13 @@
 								S'identifier
 							</button>
 							<a class="btn btn-sm btn-lg btn-warning text-white mt-3" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
-
 						</form>
 					</div>
+
 				</div>
 			</div>
 
 		</div>
 	</div>
-
 
 {% endblock %}

@@ -16,7 +16,7 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        //Je cre une instance de la classe user
+        //Je crée une instance de la classe user
         $user = new User();
 
         //je cree mon formulaire d'inscription
@@ -27,11 +27,11 @@ class RegistrationController extends AbstractController
 
         //Si le formulaire a ete soumis
         if ($form->isSubmitted() && $form->isValid()) {
-
+  
             // Je hash le password avant de l'envoyer en base de données
             $user->setPassword(
                 //J'utilise le composant UserPasswordHasherInterface
-                $userPasswordHasher->hashPassword(
+            $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
@@ -47,7 +47,7 @@ class RegistrationController extends AbstractController
 
             //Je redirige vers la page de login
             return $this->redirectToRoute('app_login');
-        }
+        } 
 
         
 

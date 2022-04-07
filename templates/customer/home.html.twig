@@ -55,7 +55,8 @@
 						<div class="card">
 							<img src="{{ category.imagePath }}" class="card-img-top imageCategory" alt="image_category">
 							<div class="card-body">
-								<h5 class="card-title">{{ category.name }}</h5>
+								<h5 class="card-title">{{ category.name|u.truncate('25', '...',false) }}</h5>
+
 								<a href="{{ path('boutique_product_show_by_category',{'id': category.id}) }}" class="btn btn-primary w-100">Consulter</a>
 
 							</div>
@@ -67,7 +68,6 @@
 		</div>
 	</section>
 	<!-- FIN LES CATEGORIES -->
-
 
 	<section>
 		<div
@@ -86,7 +86,7 @@
 							<img src="{{ product.imagePath }}" class="card-img-top imageCategory" alt="image_nouveaute">
 
 							<div class="card-body">
-								<h5 class="card-title">{{ product.name }}</h5>
+								<h5 class="card-title">{{ product.name|u.truncate('25', '...',false) }}</h5>
 								<p>{{ product.price | priceEuro }}</p>
 								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary w-100">Consulter</a>
 

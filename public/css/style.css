@@ -52,8 +52,9 @@ div {
 }
 
 .imageCardProduct {
+    margin-bottom: 0;
     object-fit: contain;
-    min-height: 250px;
+    max-height: 200px;
     padding-top: 20px;
 }
 
