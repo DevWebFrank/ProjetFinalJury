@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="content-footer">
 				<div class="col-6 col-md-2 bloc footer-contact">
-					<h3 class="footer-heading">Cordonnées</h3>
+					<h3 class="footer-heading">Coordonnées</h3>
 
 					<ul class="liste-contact">
 						<li>
@@ -52,7 +52,7 @@
 							<a href="#">Gestion des cookies</a>
 						</li>
 						<li>
-							<a href="#">Mentions légales</a>
+							<a href="{{ path('customer_legal_notice_show',{'title':'Mentions légales'}) }}">Mentions légales</a>
 						</li>
 						<li>
 							<a href="#">Protection des données</a>
@@ -69,32 +69,21 @@
 
 					<ul class="liste-media">
 						<li>
-							<a href="#">
-								<img src="img/medias/fb.png" alt="icone réseau Facebook">Facebook</a>
+							<a href="#"><img src="{{ asset('assets/img/medias/fb.png') }}" alt="icone réseau Facebook">Facebook</a>
 						</li>
 						<li>
-							<a href="#">
-								<img src="img/medias/twitter.png" alt="icone réseau Twitter">Twitter</a>
-
+							<a href="#"><img src="{{ asset('assets/img/medias/twitter.png') }}" alt="icone réseau Twitter">Twitter</a>
 						</li>
 						<li>
-							<a href="#">
-								<img src="img/medias/github.png" alt="icone réseau Git-hub">Git-Hub</a>
+							<a href="#"><img src="{{ asset('assets/img/medias/github.png') }}" alt="icone réseau Git-hub">Git-Hub</a>
 						</li>
 						<li>
-							<a href="#">
-								<img src="img/medias/instragram.png" alt="icones réseau Instragram">Instragram</a>
-
+							<a href="#"><img src="{{ asset('assets/img/medias/instragram.png') }}" alt="icones réseau Instragram">Instragram</a>
 						</li>
 					</ul>
 				</div>
-
 			</div>
-		</div>
-
-	</div>
-	<div class="text-center mt-3">
-		<p class="footer-copyright mb-2">2022 © Iboy, All Rights Reserved</p>
-	</div>
-
-</footer>
+			<div class="text-center mt-3">
+				<p class="footer-copyright mb-2">2022 © Iboy, All Rights Reserved</p>
+			</div>
+		</footer>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Post
+{% block title %}Edit Info
 {% endblock %}
 
 {% block body %}
@@ -19,9 +19,14 @@
 							{{ app.user.name }}</h5>
 					</div>
 
-					<divclass="card-body">
+					<div class="card-body">
 						{{ form_start(form) }}
-						{{ form_widget(form) }}
+						{{ form_widget(form) }} 
+						{# {{ form_row(form.birthday) }}
+						{{ form_row(form.firstname) }}
+						{{ form_row(form.name) }}
+						{{ form_row(form.email) }}
+						{{ form_row(form.telephone) }}#}
 						<button class="btn btn-secondary mt-3" type="submit">Enregistrer</button>
 						{{ form_end(form) }}
 					</div>

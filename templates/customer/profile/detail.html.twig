@@ -19,11 +19,36 @@
 
 				<div class="card mt-3">
 					<div class="card-header">
-						<h5>Informations personnelles</h5>
+						<h5>Informations personnelles de Mr
+							{{ app.user.name }}</h5>
 					</div>
 					<div class="card-body">
-						<p>{{ app.user.name }}</p>
-						<p>{{ app.user.telephone }}</p>
+						<div class="row">
+							<div class="col-6">
+								<p>Prénom :
+									{{ app.user.firstname }}</p>
+							</div>
+							<div class="col-6">
+								<p>Nom :
+									{{ app.user.name }}</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<p>Email :
+									{{ app.user.email }}</p>
+							</div>
+							<div class="col-6">
+								<p>Téléphone :
+									{{ app.user.telephone }}</p>
+							</div>
+						</div>
+						<p>Adresse :
+							{{ app.user.adresse }}</p>
+
+						<p>Date de naissance :
+							{{ app.user.birthday|date('d/m/Y') }}
+
 					</div>
 				</div>
 

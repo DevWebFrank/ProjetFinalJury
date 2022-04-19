@@ -4,7 +4,7 @@
 
 	<div class="container-fluid">
 		<a href="{{ path('home') }}">
-			<img class="btn btn-sm"  src="{{ asset('img/logoBeautyShop3.jpg') }}" alt="logo de beautyshop">
+			<img class="btn btn-sm" src="{{ asset('assets/img/logoBeautyShop3.jpg') }}" alt="logo de beautyshop">
 		</a>
 
 		<!-- <a class="navbar-brand" href="{{ path('home') }}">E-Com</a> -->
@@ -51,25 +51,27 @@
 				{% endfor %}
 			</ul>
 			<div>
-				<a class="nav-link text-white" aria-current="page" href="{{ path('profile_detail') }}">
-					Mon compte
+				<a
+					class="nav-link text-white" aria-current="page" href="{{ path('profile_detail') }}">
+					<!-- Mon compte -->
 					<i class="far fa-circle-user"></i>
-
-
 				</a>
 			</div>
 
 			<div>
-				<a class="nav-link text-white" aria-current="page" href="{{ path('cart_detail') }}">
-					Mon panier
+				<a
+					class="nav-link text-white position-relative" aria-current="page" href="{{ path('cart_detail') }}">
+					<!-- Mon panier -->
 					<i class="fas fa-shopping-bag"></i>
+					<span class="position-absolute top-5 left-100 translate-middle badge rounded-pill bg-light text-dark">
+						{{ handleCart.detailPanier() | length }}
+					</span>
 				</a>
 			</div>
 
 			<!-- <form class="d-flex"> //CHAMPS RECHERCHE
-																																											<input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
-																																											<button class="btn btn-success" type="submit">Recherche</button>
-																																										</form> -->
+																<input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+																<button class="btn btn-success" type="submit">Recherche</button>																																								</form> -->
 		</div>
 	</div>
 </nav>

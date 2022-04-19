@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ContactFormType;
+use App\Form\ContactSupportType;
 use Symfony\Component\Mime\Email;
 use App\Services\Mail\SendPreparedMail;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,7 @@ class ContactController extends AbstractController
     #} 
     public function contactSupport(SendPreparedMail $sendPreparedMail, Request $request)
     {
-        $form = $this->createForm(ContactFormType::class);
+        $form = $this->createForm(ContactSupportType::class);
 
         $form->handleRequest($request);
 

@@ -4,6 +4,7 @@ twig:
     globals:
         # the value is the service's id
         categoryRepository: '@App\Repository\CategoryRepository'
+        handleCart: '@App\Services\Cart\HandleCart'
 
 when@test:
     twig:

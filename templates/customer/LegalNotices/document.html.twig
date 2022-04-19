@@ -1,0 +1,38 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+	{# {{ condition.title }} #}
+{% endblock %}
+
+
+{% block body %}
+	<div class="container py-5">
+
+		<div class="row">
+
+			{% include "_messages_flash.html.twig" %}
+
+			<div class="col-12">
+				<a class="btn btn-secondary" href="{{ path('home')}}">Retour</a>
+			</div>
+
+
+			<div class="col-sm-12 col-md-6 col-lg-6">
+
+				<div class="card">
+
+					<div class="card-body">
+						<h5 class="card-title">{{ condition.title }}</h5>
+						{{ condition.content | raw}}
+
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+{% endblock %}
+

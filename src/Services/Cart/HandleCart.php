@@ -8,24 +8,24 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class HandleCart
 {
-    private $session;
+    private $toto;
 
     private $productRepository;
 
     public function __construct(SessionInterface $session, ProduitRepository $produitRepository)
     {
-        $this->session = $session;
+        $this->toto = $session;
         $this->productRepository = $produitRepository;
     }
 
     private function getCart()
     {
-        return $this->session->get('cart', []);
+        return $this->toto->get('cart', []);
     }
 
     private function saveCart($cart)
     {
-        $this->session->set('cart', $cart);
+        $this->toto->set('cart', $cart);
     }
 
     public function add($id)
@@ -64,7 +64,6 @@ class HandleCart
         $cart = $this->getCart();
 
         //Je boucle sur tous les elements de mon paniers
-
         foreach ($cart as $item) {
             //Je vais chercher le produit dans la bdd
             //Grace a l'id qui dans l'item du panier
@@ -108,8 +107,10 @@ class HandleCart
     {
         $cart = $this->getCart();
 
-        foreach ($cart as $key => $item) {
-            if ($item->getId() === $id) {
+        foreach ($cart as $key => $item) 
+        {
+            if ($item->getId() === $id)
+            {
                 unset($cart[$key]);
                 $this->saveCart($cart);
                 return;

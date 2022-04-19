@@ -4,8 +4,10 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactSupportType extends AbstractType
@@ -18,6 +20,19 @@ class ContactSupportType extends AbstractType
             ])
             ->add('contentMessage', TextareaType::class, [
                 'label' => 'Message'
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'E-mail',
+                'attr' => [
+                    'autocomplete' => 'email',
+                    'placeholder' => 'Adresse e-mail',
+                ],
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Rentrer votre e-mail',
+                    ]),
+                ],
             ]);
     }
 
