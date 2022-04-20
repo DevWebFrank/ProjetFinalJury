@@ -45,6 +45,10 @@ div {
     height: 60px;
 }
 
+.navbar i {
+    max-width: 50% !important;
+}
+
 .imageCategory {
     padding-top: 15px;
     height: 325px;
