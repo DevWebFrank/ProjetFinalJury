@@ -90,65 +90,70 @@
 	</section>
 
 	<section>
-		<div class="col-12 pt-3">
-			<div class="card">
-				<div class="card-header">
-					<h5 class="card-title">Facture #{{ purchase.invoice.id }}</h5>
-					<p>Date :
-						{{ purchase.createdAt | date('d-M-Y')}}</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 pt-3">
+					<div class="card">
+						<div class="card-header">
+							<h5 class="card-title">Facture #{{ purchase.invoice.id }}</h5>
+							<p>Date :
+								{{ purchase.createdAt | date('d-M-Y')}}</p>
 
-				</div>
-				<div class="card-body">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">Produit</th>
-								<th scope="col">Prix Unitaire</th>
-								<th scope="col">Quantité</th>
-								<th scope="col">Total</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for item in purchase.invoice.contentInvoices %}
-								<tr>
-									<th>
-										<div class="d-flex align-items-center">
-											<img src="{{ item.imageProduct }}" alt="" style="height:80px;object-fit:contain;">
-											<div class="d-flex flex-column align-items-center">
-												<p>{{ item.productname }}</p>
-											</div>
+						</div>
+						<div class="card-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Produit</th>
+										<th scope="col">Prix Unitaire</th>
+										<th scope="col">Quantité</th>
+										<th scope="col">Total</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for item in purchase.invoice.contentInvoices %}
+										<tr>
+											<th>
+												<div class="d-flex align-items-center">
+													<img src="{{ item.imageProduct }}" alt="" style="height:80px;object-fit:contain;">
+													<div class="d-flex flex-column align-items-center">
+														<p>{{ item.productname }}</p>
+													</div>
 
-										</div>
-									</th>
-									<td>{{ item.priceProduct | priceEuro }}</td>
-									<td>
-										<button class="btn btn-light">
-											{{ item.quantity }}</button>
-									</td>
-									<td>{{ item.total | priceEuro }}</td>
-								</tr>
-							{% endfor %}
-							<tr>
-								<th colspan="2"></th>
-								<th>
-									<p>
-										<strong>Sous total</strong>
-									</p>
-								</th>
-								<th>
-									<p>
-										<strong>{{ purchase.invoice.total | priceEuro}}</strong>
-									</p>
-								</th>
-							</tr>
+												</div>
+											</th>
+											<td>{{ item.priceProduct | priceEuro }}</td>
+											<td>
+												<button class="btn btn-light">
+													{{ item.quantity }}</button>
+											</td>
+											<td>{{ item.total | priceEuro }}</td>
+										</tr>
+									{% endfor %}
+									<tr>
+										<th colspan="2"></th>
+										<th>
+											<p>
+												<strong>Sous total</strong>
+											</p>
+										</th>
+										<th>
+											<p>
+												<strong>{{ purchase.invoice.total | priceEuro}}</strong>
+											</p>
+										</th>
+									</tr>
 
 
-						</tbody>
-					</table>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
 				</div>
 			</div>
-
 		</div>
+
 	</section>
 
 {% endblock %}
