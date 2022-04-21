@@ -22,9 +22,9 @@ class ContentListProduct
     #[ORM\JoinColumn(nullable: false)]
     private $product;
 
-    /* #[ORM\ManyToOne(targetEntity: Purchase::class, inversedBy: 'contentListProducts')]
+    #[ORM\ManyToOne(targetEntity: Purchase::class, inversedBy: 'contentListProducts')]
     #[ORM\JoinColumn(nullable: false)]
-    private $purchase; */
+    private $purchase;
 
     #[ORM\Column(type: 'integer')]
     private $quantity;
@@ -58,7 +58,7 @@ class ContentListProduct
         return $this;
     }
 
-    /* public function getPurchase(): ?Purchase
+    public function getPurchase(): ?Purchase
     {
         return $this->purchase;
     }
@@ -68,7 +68,7 @@ class ContentListProduct
         $this->purchase = $purchase;
 
         return $this;
-    } */
+    }
 
     public function getQuantity(): ?int
     {
