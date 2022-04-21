@@ -16,11 +16,10 @@
 						<thead>
 							<tr>
 								<th scope="col">Produit</th>
-								<th scope="col"></th>
-								<th scope="col"></th>
-								<th scope="col">Prix Unitaire</th>
-								<th scope="col">Quantité</th>
-								<th scope="col">Total</th>
+								<th scope="col" class="text-center">Prix Unitaire</th>
+								<th scope="col" class="text-center">Quantité</th>
+								<th scope="col" class="text-center">Total</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -36,45 +35,37 @@
 											</div>
 										</div>
 									</th>
-									<th>
-										<a class="btn btn-warning btn-sm text-white" href="{{ path('cart_remove_product',{'id': item.product.id }) }}">Supprimer</a>
-									</th>
-									<th>
-										<a href="{{ path('cart_remove_product',{'id': item.product.id }) }}">
-											<i class="fa-regular fa-circle-xmark btn-light mt-3 ms-5"></i>
-										</a>
+									<td class="text-center">{{ item.product.price | priceEuro }}</td>
 
-										<img class="btn px-2" type="submit" href="{{ path('cart_remove_product',{'id': item.product.id }) }}" src="{{ asset('img/btn_supp.jpg') }}" style="height:30px;">
-
-									</th>
-
-									<td>{{ item.product.price | priceEuro }}</td>
-
-									<td>
+									<td class="center">
 										<a class="btn btn-dark" href="{{ path('cart_decrement_product',{'id' : item.product.id }) }}">
 											<i class="fas fa-minus-circle"></i>
 										</a>
-										<button class="btn btn-light">
-											{{ item.qty }}</button>
+										<a class="btn">
+											{{ item.qty }}</a>
 										<a class="btn btn-dark" href="{{ path('cart_add',{'id' : item.product.id }) }}?routeToRedirect=panier">
 											<i class="fas fa-plus-circle"></i>
 										</a>
 									</td>
+									<td class="text-center">{{ item.total | priceEuro }}</td>
 
-									<td>{{ item.total | priceEuro }}</td>
-
+									<th>
+										<a href="{{ path('cart_remove_product',{'id': item.product.id }) }}">
+											<i class="fa-regular fa-circle-xmark textRaja mt-3 ms-5"></i>
+										</a>
+									</th>
 								</tr>
 
 							{% endfor %}
 							<tr>
-								<th colspan="4"></th>
+								<th colspan="2"></th>
 								<th>
-									<p>
+									<p class="text-center">
 										<strong>Sous total</strong>
 									</p>
 								</th>
 								<th>
-									<p>
+									<p class="text-center">
 										<strong>{{ totalPrixPanier | priceEuro}}</strong>
 									</p>
 								</th>

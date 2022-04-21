@@ -136,13 +136,18 @@ div {
     font-weight: bold !important;
 }
 
-/* HOME  */
+/* HOME */
 
 .card-title {
     /* POUR minimaliser le texte sans qu'il sorte de la div*/
     /* text-overflow: ellipsis; */
     white-space: nowrap;
     overflow: hidden;
+}
+
+/* PANIER */
+.center {
+    text-align: center;
 }
 
 
