@@ -26,6 +26,8 @@ class CartController extends AbstractController
 
         if ($request->query->get('routeToRedirect') === 'panier') {
             return $this->redirectToRoute("cart_detail");
+        } elseif ($request->query->get('routeToRedirect') === 'home') {
+            return $this->redirectToRoute('home');
         } else {
             return $this->redirectToRoute("boutique_product_detail", ['id' => $id]);
         }

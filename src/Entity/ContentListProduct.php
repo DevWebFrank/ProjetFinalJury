@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ContentListProductRepository;
+use App\Entity\Purchase;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ContentListProductRepository;
 
 #[ORM\Entity(repositoryClass: ContentListProductRepository::class)]
 class ContentListProduct
@@ -20,6 +21,10 @@ class ContentListProduct
     #[ORM\ManyToOne(targetEntity: Produit::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $product;
+
+    /* #[ORM\ManyToOne(targetEntity: Purchase::class, inversedBy: 'contentListProducts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $purchase; */
 
     #[ORM\Column(type: 'integer')]
     private $quantity;
@@ -52,6 +57,18 @@ class ContentListProduct
 
         return $this;
     }
+
+    /* public function getPurchase(): ?Purchase
+    {
+        return $this->purchase;
+    }
+
+    public function setPurchase(?Purchase $purchase): self
+    {
+        $this->purchase = $purchase;
+
+        return $this;
+    } */
 
     public function getQuantity(): ?int
     {

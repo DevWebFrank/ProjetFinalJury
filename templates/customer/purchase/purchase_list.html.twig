@@ -18,7 +18,7 @@
 								<th scope="col">Total</th>
 								<th scope="col">Action</th>
 							</tr>
-						</thead> 
+						</thead>
 						<tbody>
 							{% for item in purchases %}
 								<tr>
@@ -27,24 +27,19 @@
 									</th>
 									<!-- date('d-M-Y') = c'est un filtre pour ecrire la dateTime-->
 									<td>{{ item.createdAt | date('d-M-Y') }}</td>
-
-										<td>
-											{{ item.invoice.total | priceEuro }}
-										</td>
-										<td>
-											<a href="{{ path('profile_purchase_show',{'id': item.id})  }}" class="btn btn-primary">
-												<i class="fas fa-eye">
-													Consulter</a>
+									<td>
+										{{ item.invoice.total | priceEuro }}
+									</td>
+									<td>
+										<a href="{{ path('profile_purchase_show',{'id': item.id}) }}" class="btn btn-primary">
+											<i class="fas fa-eye">Consulter</a>
 										</td>
 									</td>
 								</tr>
-								
 							{% endfor %}
-
 						</tbody>
 					</table>
 				</div>
-
 			</div>
 		</div>
 	</section>

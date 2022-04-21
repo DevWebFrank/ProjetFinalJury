@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!
+{% block title %}Nous contacter
 {% endblock %}
 
 {% block body %}
@@ -18,32 +18,30 @@
 			<div class="contact-form mb-2">
 
 				<div class="form-group justify-content-center">
+					{{ form_start(formContact) }}
 
-					{{ form_start(form) }}
-					{{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
-
+					{{ form_row(formContact.email, {'attr': {'class': 'form-control'}}) }}
 				</div>
 
 				<div class="row">
 					<div class="form-group col-6">
-						{{ form_row(form.prenom, {'attr': {'class': 'form-control'}}) }}
+						{{ form_row(formContact.prenom, {'attr': {'class': 'form-control'}}) }}
 					</div>
 
-
 					<div class="form-group col-6">
-						{{ form_row(form.nom, {'attr': {'class': 'form-control'}}) }}
+						{{ form_row(formContact.nom, {'attr': {'class': 'form-control'}}) }}
 					</div>
 				</div>
 
 				<div class="form-group">
-
-					{{ form_row(form.message, {'attr': {'class': 'form-control'}}) }}
+					{{ form_row(formContact.message, {'attr': {'class': 'form-control'}}) }}
 				</div>
 
 				<div class="form-group">
 					<input type="submit" value="Nous faire parvenir" class="btn btn-primary py-3 px-5 mb-5 w-100">
 				</div>
-				{{ form_end(form) }}
+				{{ form_end(formContact) }}
+
 			</div>
 		</div>
 	</div>

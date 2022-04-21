@@ -45,8 +45,8 @@ div {
     height: 60px;
 }
 
-.navbar i {
-    max-width: 50% !important;
+.pictoNav.fa-shopping-bag {
+    height: 50px;
 }
 
 .imageCategory {
