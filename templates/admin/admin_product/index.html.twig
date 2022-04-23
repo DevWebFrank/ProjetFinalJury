@@ -3,6 +3,7 @@
 {% block title %}Liste des produits
 {% endblock %}
 
+
 {% block body %}
 	<div class="container py-5">
 		<div class="row">
@@ -18,7 +19,6 @@
 				{{ knp_pagination_render(products) }}
 			</div>
 
-
 			{% for product in products %}
 
 				<div class="col-sm-12 col-md-6 col-lg-4 mt-3">
@@ -28,7 +28,8 @@
 						<div class="card-body">
 							<h5 class="card-title">{{ product.name | u.truncate('20', '...',false)}}</h5>
 							<p>{{ product.price | priceEuro }}</p>
-							<p>Catégorie : {{ product.category }}</p>
+							<p>Catégorie :
+								{{ product.category }}</p>
 
 							<a href="{{ path('admin_product_edit',{ 'id' : product.id} ) }}" class="btn btn-primary w-100">Manager</a>
 

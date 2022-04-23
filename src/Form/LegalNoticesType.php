@@ -28,14 +28,13 @@ class LegalNoticesType extends AbstractType
 
                 ]
             ])
-            ->add('content', CKEditorType::class,[
+            ->add('content', CKEditorType::class, [
                 'label' => 'texte',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'ajpouter votre texte ici'
+                    'placeholder' => 'ajouter votre texte ici'
                 ]
-            ])
-            ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -107,7 +107,6 @@ div {
 
 .namePanier {
     font-weight: 300;
-
 }
 
 #champs {
@@ -155,6 +154,10 @@ div {
 
 footer {
     /* flex-shrink: 0; */
+
+    /* Pour essayer de fixed mon footer en bas de page */
+    /* position: fixed;
+    bottom: 0; */ 
     border-top: 1px solid #000;
     width: 100%;
     background: #f1f1f1;

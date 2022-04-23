@@ -12,7 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
- 
+
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -36,7 +36,10 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Prénom*'
-                ]
+                ]/* ,
+                new Length([
+                    'min' => 4,
+                ]) */
             ])
             ->add('birthDay', DateType::class, [
                 'label' => 'Date de naissance',
@@ -53,13 +56,21 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Téléphone*'
-                ]
+                ]/* ,
+                new Length([
+                    'max' => 10,
+                ]) */
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse email',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Email*'
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'TOTO Il existe déjà un compte avec cet email',
+                    ]),
                 ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
@@ -70,10 +81,8 @@ class RegistrationFormType extends AbstractType
                     new IsTrue([
                         'message' => 'Veuillez accepter les CGU',
                     ]),
-                ],
+                ]
             ])
-
-
             /* ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -108,9 +117,6 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Mot de passe*'
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Vous devez renseigner un MOTO mot de passe.',
-                    ]),
                     // new Length([
                     //     'min' => 6,
                     //    'minMessage' => 'Le mot de passe doit faire au moins {{ limit }} caracteres',
@@ -120,8 +126,8 @@ class RegistrationFormType extends AbstractType
                     new PasswordStrength(
                         [
                             'minLength' => 8, // nombre de caractère minimum
-                            'tooShortMessage' => 'Le mot de passe doit contenir 8 caractéres.',
-                            'minStrength' => 4, // 4=strong force du mot de passe (de 1 à 5)
+                            'tooShortMessage' => 'Le mot de passe doit contenir au minimum 8 caractéres.',
+                            'minStrength' => 4, // 4=strong le niveau de robustesse du mot de passe (de 1 à 5)
                             'message' => 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.',
                         ]
                     )

@@ -19,20 +19,29 @@
 					<div class="card-header">
 						<h5 class="card-title">Edition de document</h5>
 					</div>
+					{#<!-- <div class="card-body">
+													{{ form_start(form) }}
+													{{ form_widget(form) }}
+													<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>
+													{{ form_end(form) }}
+												</div> -->#}
+
+
 					<div class="card-body">
 						{{ form_start(form) }}
-						{{ form_widget(form) }}
+						<p class="mb-1">{{ form_row(form.title) }}</p>
+						<p class="mb-1">{{ form_row(form.content) }}</p>
+						{#<!--<p class="mb-1">{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</p> -->#}
 						<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>
 						{{ form_end(form) }}
 					</div>
 
 					{#<div class="card-body">
-					{{ form_start(form) }}
-					{{ form_row(form.title) }} <!--<ou {{ form_widget(form.title) }}  >-->
-					<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>																				
-					{{ form_end(form, {render_rest: false}) }}
-					</div>#}
-
+											{{ form_start(form) }}
+											{{ form_row(form.title) }} <!--<ou {{ form_widget(form.title) }}  >-->
+											<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>																				
+											{{ form_end(form, {render_rest: false}) }}
+										</div>#}
 				</div>
 			</div>
 

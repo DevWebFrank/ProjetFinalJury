@@ -31,7 +31,7 @@
 									<!-- date('d-M-Y') = c'est un filtre pour ecrire la dateTime-->
 									<td>{{ item.createdAt | date('d-M-Y') }}</td>
 									<td>
-										{{ item.invoice.total | priceEuro }}
+										{# {{ item.invoice.total | priceEuro }} #}
 									</td>
 									<td>
 										<a href="{{ path('profile_purchase_show',{'id': item.id}) }}" class="btn btn-primary">

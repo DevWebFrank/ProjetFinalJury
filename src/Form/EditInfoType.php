@@ -18,7 +18,7 @@ class EditInfoType extends AbstractType
         $builder
 
             ->add('name', TextType::class, [
-                'label' => 'Votre nom',
+                'label' => 'Nom',
                 'required' => false
             ])
 
@@ -30,18 +30,17 @@ class EditInfoType extends AbstractType
                 ],
 
             ])
-
             ->add('birthDay', DateType::class, [
                 'label' => 'Date de naissance',
                 'required' => false,
             ])
             ->add('adresse', TextType::class, [
-                'label' => ' Votre adresse',
+                'label' => ' Adresse',
                 'required' => false
             ])
 
             ->add('telephone', textType::class, [
-                'label' => 'Votre téléphone',
+                'label' => 'Téléphone',
                 'required' => false
             ])
 

@@ -1,5 +1,9 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Détail profil
+{% endblock %}
+
+
 {% block body %}
 	<div class="container py-5">
 
@@ -19,8 +23,10 @@
 
 				<div class="card mt-3">
 					<div class="card-header">
-						<h5>Informations personnelles de Mr
+						<h5>Informations personnelles de
+							{{ app.user.firstname }}
 							{{ app.user.name }}</h5>
+
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -46,9 +52,8 @@
 						<p>Adresse :
 							{{ app.user.adresse }}</p>
 
-						<p>Date de naissance :
-							{{ app.user.birthday|date('d M Y') }}
-
+						<p>Date de naissance :{{ app.user.birthday|date('d M Y') }}
+						</p>
 					</div>
 				</div>
 

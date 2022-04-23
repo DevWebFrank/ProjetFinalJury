@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LegalNoticesController extends AbstractController
 {
-    #[Route('/admin/legal/notices', name: 'admin_legal_notices')]
+    #[Route('/admin/legal_notices', name: 'admin_legal_notices')]
     public function index(): Response
     {
         return $this->render('admin/legal_notices/index.html.twig', [
@@ -56,7 +56,7 @@ class LegalNoticesController extends AbstractController
             ]);
         }
 
-        return $this->render('admin/legal_notices/index.html.twig', [
+        return $this->render('admin/legal_notices/legal_notices_edit.html.twig', [
             'form' => $form->createView(),
         ]);
     }

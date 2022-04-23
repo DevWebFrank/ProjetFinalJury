@@ -1,5 +1,9 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Détail du produit
+{% endblock %}
+
+
 {% block body %}
 
 	<section>
@@ -10,8 +14,6 @@
 				<div class="col-12">
 					<div class="col-12 d-flex justify-content-end">
 						<a class="btn btn-primary" href="{{ path('boutique_product_show_by_category',{'id':product.category.id}) }}">
-
-
 							<span class="btn-label">
 								<i class="fa fa-chevron-left"></i>
 							</span>Retour</a>
@@ -36,15 +38,12 @@
 							<a href="{{ path('cart_add',{ 'id' : product.id } ) }}" class="btn btn-primary">Ajouter au panier</a>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
-
 	</section>
 
-	<section>
+	<section class=" bg-light">
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-12">

@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connection
+{% block title %}Connexion
 {% endblock %}
 
 {% block body %}
-	<div class="container py-5">
+	<div class="container d-flex justify-content-center py-5">
+
 		<div class="row">
 			{% include "_messages_flash.html.twig" %}
 
@@ -12,20 +13,29 @@
 				<a class="btn btn-secondary" href="{{ path('app_register') }}">Pas encore de compte ? Créer un compte</a>
 			</div>
 
-			<div class="col-sm-12 mt-3">
+			<div class="col-md-12 mt-3">
 				<div class="card">
 					<div class="card-header">
-						<h5 class="card-title">Identification</h5>
+						<h5 class="card-title mt-2">Identification</h5>
 					</div>
 					<div class="card-body">
 						<form method="post">
 							{% if error %}
 								<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 							{% endif %}
+							<div>
+								<p class="fw-lighter fs-6">
+									Entrez votre adresse e-mail :
+								</p>
+							</div>
 							<!-- <label for="inputEmail">Email</label> -->
-							<input
-							type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="email" required autofocus placeholder="Adresse mail*">
+							<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control fst-italic fs-6 mt-2 mb-4" autocomplete="email" required autofocus placeholder="Adresse e-mail*">
 
+							<div class=" mt-2">
+								<p class="fw-lighter fs-6">
+									Votre mot de passe est :
+								</p>
+							</div>
 							<!-- <label for="inputPassword">Mot de passe</label> -->
 							<input type="password" name="password" id="inputPassword" class="form-control fst-italic fs-6 mt-3 mb-2" autocomplete="current-password" required placeholder="Mot de passe*">
 							<input
@@ -38,7 +48,9 @@
 							<button class="btn btn-lg btn-dark btn-sm mt-3" type="submit">
 								S'identifier
 							</button>
-							<a class="btn btn-sm btn-lg btn-warning text-white mt-3" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+							<div class="col-12 d-flex justify-content-end">
+								<a class="btn btn-sm btn-lg btn-warning text-white" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+							</div>
 						</form>
 					</div>
 

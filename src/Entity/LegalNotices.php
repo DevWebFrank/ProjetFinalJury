@@ -6,6 +6,7 @@ use App\Repository\LegalNoticesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LegalNoticesRepository::class)]
+#[ORM\Table(name: '`legalNotices`')]
 class LegalNotices
 {
     #[ORM\Id]
