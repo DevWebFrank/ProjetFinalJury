@@ -34,7 +34,7 @@
 										<tr>
 											<th>
 												<div class="d-flex align-items-center">
-													<img src="{{ item.contentlistProduct.product.imagePath }}" alt="" style="height:80px;object-fit:contain;">
+													<img src="{{ item.contentlistProduct.product.imagePath }}" alt="Photo du produit" style="height:80px;object-fit:contain;">
 													<div class="d-flex flex-column align-items-center">
 														<p>{{ item.product.name }}</p>
 													</div>
@@ -80,16 +80,15 @@
 							<p>{{ purchase.postalCode }}</p>
 							<p>{{ purchase.country }}</p>
 							<p>{{ purchase.telephone }}</p>
-
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<section>
+		<!-- DEBUT FACTURE -->
 		<div class="container mb-5">
 			<div class="row">
 				<div class="col-md-12 pt-3">
@@ -115,11 +114,10 @@
 										<tr>
 											<th>
 												<div class="d-flex align-items-center">
-													<img src="{{ item.imageProduct }}" alt="" style="height:80px;object-fit:contain;">
+													<img src="{{ item.imageProduct }}" alt="Photo du produit" style="height:80px;object-fit:contain;">
 													<div class="d-flex flex-column align-items-center">
 														<p>{{ item.productname }}</p>
 													</div>
-
 												</div>
 											</th>
 											<td>{{ item.priceProduct | priceEuro }}</td>
@@ -155,5 +153,6 @@
 		</div>
 
 	</section>
+	<!-- FIN FACTURE -->
 
 {% endblock %}

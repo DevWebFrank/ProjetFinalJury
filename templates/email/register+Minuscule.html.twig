@@ -48,11 +48,6 @@
 									entre 8 et 40 caractères.</p>
 							</div>
 							<div class="typoRegisterConstraint">
-								<p class="fw-lighter text-medium-grey" id='contraintMinuscule'>
-									<i class="fas fa-check-circle"></i>
-									au moins une lettre minuscule</p>
-							</div>
-							<div class="typoRegisterConstraint">
 								<p class="fw-lighter text-medium-grey" id='contraintMajuscule'>
 									<i class="fas fa-check-circle"></i>
 									au moins une lettre majuscule</p>
@@ -61,6 +56,13 @@
 								<p class="fw-lighter text-medium-grey" id='contraintChiffre'>
 									<i class="fas fa-check-circle"></i>
 									au moins un chiffre</p>
+							</div>
+							<div class="typoRegisterConstraint">
+								<p class="fw-lighter text-medium-grey" id='contraintMinuscule'>
+
+									<i class="fa-duotone fa-check-circle"></i>
+									au moins une lettre minuscule</p>
+
 							</div>
 							{{ form_row(registrationForm.agreeTerms) }}
 							<button type="submit" class="btn btn-primary mt-3">S'inscrire</button>
@@ -72,17 +74,18 @@
 			</div>
 		</div>
 	</div>
-	<script> 
+
+	<script>
 		const inputPassword = document.getElementById('registration_form_plainPassword_first');
 const contraintLength = document.getElementById('contraintLength');
+const contraintMinuscule = document.getElementById('contraintMinuscule');
 const contraintMajuscule = document.getElementById('contraintMajuscule');
 const contraintChiffre = document.getElementById('contraintChiffre');
-const contraintMinuscule = document.getElementById('contraintMinuscule');
-
 
 const checkLength = (item) => {
 if (item >= 8 && item <= 40) {
 contraintLength.classList.add('textGreen');
+
 } else {
 contraintLength.classList.remove('textGreen');
 }
@@ -93,34 +96,27 @@ if (item.match(new RegExp("[A-Z]"))) {
 contraintMajuscule.classList.add('textGreen');
 } else {
 contraintMajuscule.classList.remove('textGreen');
+
 }
 }
 
 const checkChiffre = (item) => {
 if (item.match(new RegExp("[0-9]"))) {
+
 contraintChiffre.classList.add('textGreen');
 } else {
 contraintChiffre.classList.remove('textGreen');
-}
-}
 
-const checkMinuscule = (item) => {
-if (item.match(new RegExp("[a-z]"))) {
-contraintMinuscule.classList.add('textGreen');
-} else {
-contraintMinuscule.classList.remove('textGreen');
 }
-}
-
-inputPassword.addEventListener('keyup', () => {
+} inputPassword.addEventListener('keyup', () => {
 let actualLength = inputPassword.value.length;
-// console.log(actualLength);
-checkLength(actualLength);
+console.log(actualLength);
+
 
 let inputValue = inputPassword.value;
 checkMajuscule(inputValue);
 checkChiffre(inputValue);
-checkMinuscule(inputValue);
+
 })
 	</script>
 {% endblock %}

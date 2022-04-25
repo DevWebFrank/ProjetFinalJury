@@ -150,6 +150,12 @@ div {
 }
 
 
+/* Register */
+
+.textGreen {
+    color: rgb(47, 170, 47) !important;
+}
+
 /* FOOTER */
 
 footer {
@@ -157,7 +163,7 @@ footer {
 
     /* Pour essayer de fixed mon footer en bas de page */
     /* position: fixed;
-    bottom: 0; */ 
+    bottom: 0; */
     border-top: 1px solid #000;
     width: 100%;
     background: #f1f1f1;

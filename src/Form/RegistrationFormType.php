@@ -31,16 +31,21 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Nom*'
                 ]
             ])
+
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Prénom*'
-                ]/* ,
-                new Length([
-                    'min' => 4,
-                ]) */
+                ],
+                'constraints' => [
+                    new Length([
+                        'min' => 4,
+                        'minMessage' => 'Ce champs doit faire au minimum {{ limit }} caractères.'
+                    ])
+                ]
             ])
+
             ->add('birthDay', DateType::class, [
                 'label' => 'Date de naissance',
                 'required' => false,
@@ -56,11 +61,15 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Téléphone*'
-                ]/* ,
-                new Length([
-                    'max' => 10,
-                ]) */
+                ],
+                'constraints' => [
+                    new Length([
+                        'max' => 15,
+                        'maxMessage' => 'Ce champs doit faire au maximum {{ limit }} caractères.'
+                    ])
+                ]
             ])
+
             ->add('email', EmailType::class, [
                 'label' => 'Adresse email',
                 'required' => false,
@@ -69,10 +78,11 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'TOTO Il existe déjà un compte avec cet email',
+                        'message' => 'Il existe déjà un compte avec cet email (FormType)',
                     ]),
                 ]
             ])
+
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'required' => false,
@@ -83,28 +93,6 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ]
             ])
-            /* ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-                'label' => 'Mot de passe',
-                'required' => false,
-                'attr' => [
-                    'autocomplete' => 'new-password',
-                    'placeholder' => 'Mot de passe*'
-                ],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Vous devez renseigner un TOTO mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Le mot de passe doit faire au moins {{ limit }} caracteres',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
-            ]); */
 
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -117,17 +105,11 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Mot de passe*'
                 ],
                 'constraints' => [
-                    // new Length([
-                    //     'min' => 6,
-                    //    'minMessage' => 'Le mot de passe doit faire au moins {{ limit }} caracteres',
-                    // max length allowed by Symfony for security reasons
-                    //   'max' => 4096,
-                    //]),
                     new PasswordStrength(
                         [
                             'minLength' => 8, // nombre de caractère minimum
                             'tooShortMessage' => 'Le mot de passe doit contenir au minimum 8 caractéres.',
-                            'minStrength' => 4, // 4=strong le niveau de robustesse du mot de passe (de 1 à 5)
+                            'minStrength' => 4, // 4 = trong le niveau de robustesse du mot de passe (de 1 à 5)
                             'message' => 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.',
                         ]
                     )
@@ -153,7 +135,6 @@ class RegistrationFormType extends AbstractType
                     'constraints' => [
                         new NotBlank([
                             'message' => 'Vous devez confirmer votre mot de passe',
-
                         ]),
                     ],
                 ],

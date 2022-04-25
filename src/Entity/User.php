@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
@@ -24,33 +25,40 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
     // unique: true = il ne peut pas avoir 2 emails identiques dans les users 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank(message: 'Une adresse email valide est obligatoire')]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $imagePath;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Un numéro de téléphone valide est obligatoire')]
     private $telephone;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class)]
     private $purchases;
 
     #[ORM\Column(type: 'string', length: 100,)]
+    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
     private $firstName;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
+    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
     private $birthDay;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
     private $adresse;
 
 
@@ -211,7 +219,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->birthDay;
     }
 
-    public function setBirthDay(\DateTime $birthDay): self
+    public function setBirthDay(?\DateTime $birthDay): self
     {
         $this->birthDay = $birthDay;
 
