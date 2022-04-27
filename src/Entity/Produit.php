@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\Mapping as ORM;
+use symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 class Produit
@@ -14,19 +15,24 @@ class Produit
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
     private $name;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
     private $price;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
     private $imagePath;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'produits')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
     private $category;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
     private $description;
 
 
@@ -95,5 +101,4 @@ class Produit
 
         return $this;
     }
-
 }

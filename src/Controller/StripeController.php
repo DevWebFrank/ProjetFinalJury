@@ -54,7 +54,7 @@ class StripeController extends AbstractController
             ]],
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/boutique/paiement/success',
-            'cancel_url' => $YOUR_DOMAIN . '//boutique/paiement/cancel',
+            'cancel_url' => $YOUR_DOMAIN . '/boutique/paiement/cancel',
         ]);
 
         return $this->redirect($checkout_session->url);

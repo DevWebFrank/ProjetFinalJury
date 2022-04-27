@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
+
 class ProduitType extends AbstractType
 {
     // je construit un formulaire avec les champs renseigné par le client
@@ -31,7 +32,7 @@ class ProduitType extends AbstractType
                 'divisor' => 100,
             ])
             ->add('imagePath', TextType::class, [
-                'label' => 'Image de la catégorie',
+                'label' => 'Image du produit',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Ajouter le chemin de l\'image ici'
@@ -43,8 +44,9 @@ class ProduitType extends AbstractType
                 'required' => false,
                 'class' => Category::class
             ])
-             ->add('description', TextareaType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Descriptif du produit',
+                'attr' => ['rows' => 4],
             ]);
     }
 

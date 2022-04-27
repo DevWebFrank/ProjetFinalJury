@@ -9,7 +9,7 @@ use App\Form\PurchaseType;
 use App\Services\Cart\HandleCart;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 class RecapPurchaseController extends AbstractController
@@ -42,6 +42,7 @@ class RecapPurchaseController extends AbstractController
                 $contentList->setProduct($item->getProduct());
                 $contentList->setQuantity($item->getQty());
                 $contentList->setListProduct($listProduct);
+                $contentList->setPurchase($purchase);
 
                 $em->persist($contentList);
             }

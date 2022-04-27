@@ -6,9 +6,26 @@
 
 {% block body %}
 
-	<h1>
-		Beauty-Shop vous remercie pour votre commande.
-	</h1>
+	<div class="container col-md-8 mt-5">
+		<div class="row">
+			<div class="col-md-12 d-flex justify-content-center imgThankYou">
+				<img src="https://static1.beaute.fr/articles/5/77/95/@/20090-cette-fois-ci-ce-n-est-pas-grace-a-une-article_full-2.jpg" alt="Image de remerciement">
+			</div>
+			<div class="col-md-12 d-flex justify-content-center">>
+				<h1 class="col-md-12 text-center mt-5">
+					Beauty-Shop vous remercie pour votre commande.
+				</h1>
+			</div>
+			<div class="d-flex justify-content-end logoThankYou mt-5">
+				<p>Retour au site
+					<a href="{{ path('home') }}">
+						<img class="btn btn-sm" src="{{ asset('assets/img/logoBeautyShop3.jpg') }}" alt="logo de beautyshop">
+					</a>
+				</p>
+			</div>
+
+		</div>
+	</div>
 
 
 {% endblock %}

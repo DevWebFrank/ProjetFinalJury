@@ -9,7 +9,7 @@
 		<div class="row">
 			{% include "_messages_flash.html.twig" %}
 
-			<div class="col-12 ">
+			<div class="col-12">
 				<a class="btn btn-secondary" href="{{ path('app_register') }}">Pas encore de compte ? Créer un compte</a>
 			</div>
 
@@ -31,7 +31,7 @@
 							<!-- <label for="inputEmail">Email</label> -->
 							<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control fst-italic fs-6 mt-2 mb-4" autocomplete="email" required autofocus placeholder="Adresse e-mail*">
 
-							<div class=" mt-2">
+							<div class="mt-2">
 								<p class="fw-lighter fs-6">
 									Votre mot de passe est :
 								</p>
@@ -45,18 +45,21 @@
 								<p class="fw-lighter fst-italic fs-6">
 									* champs obligatoire</p>
 							</div>
-							<button class="btn btn-lg btn-dark btn-sm mt-3" type="submit">
-								S'identifier
-							</button>
+
 							<div class="col-12 d-flex justify-content-end">
-								<a class="btn btn-sm btn-lg btn-warning text-white" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+								<button class="btn btn-lg btn-success btn-sm" type="submit">
+									S'identifier
+								</button>
 							</div>
 						</form>
 					</div>
-
+				</div>
+				<div class="card col-12 mt-3">
+					<div class="card-body">
+						<a class="col-6 btn btn-sm btn-lg btn-warning text-white" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 

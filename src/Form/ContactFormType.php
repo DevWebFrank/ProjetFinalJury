@@ -20,6 +20,11 @@ class ContactFormType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Nom',
                 ],
+            'constraints' => [
+                new NotBlank([
+                    'message' => 'Ce champs ne peu être vide',
+                ]),
+            ],
             ])
 
             ->add('prenom', TextType::class, [
@@ -27,11 +32,21 @@ class ContactFormType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Prénom',
                 ],
+            'constraints' => [
+                new NotBlank([
+                    'message' => 'Ce champs ne peu être vide',
+                ]),
+            ],
             ])
 
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
                 'attr' => ['rows' => 6],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Ce champs ne peu être vide',
+                    ]),
+                ],
             ])
 
             /* ->add('subjectMessage', TextType::class, [

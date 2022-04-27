@@ -49,10 +49,21 @@ div {
     height: 50px;
 }
 
+/* BODY */
+.bodyBottom {
+    padding-bottom: 275px;
+}
+
 .imageCategory {
     padding-top: 15px;
     height: 325px;
     object-fit: contain;
+}
+
+.imgAdminCategory img {
+    padding-top: 15px;
+    height: 285px;
+    object-fit: cover;
 }
 
 .imageCardProduct {
@@ -136,7 +147,6 @@ div {
 }
 
 /* HOME */
-
 .card-title {
     /* POUR minimaliser le texte sans qu'il sorte de la div*/
     /* text-overflow: ellipsis; */
@@ -151,19 +161,28 @@ div {
 
 
 /* Register */
-
 .textGreen {
     color: rgb(47, 170, 47) !important;
+}
+
+/* PAIEMENT THANK YOU */
+.imgThankYou img {
+    width: 1000px;
+}
+
+.logoThankYou a {
+    text-decoration: none;
+    color: #2f9c67;
+}
+
+.logoThankYou img {
+    width: 100px;
 }
 
 /* FOOTER */
 
 footer {
     /* flex-shrink: 0; */
-
-    /* Pour essayer de fixed mon footer en bas de page */
-    /* position: fixed;
-    bottom: 0; */
     border-top: 1px solid #000;
     width: 100%;
     background: #f1f1f1;

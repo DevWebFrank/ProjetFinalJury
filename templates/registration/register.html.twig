@@ -6,7 +6,6 @@
 {% block body %}
 
 	<div class="container d-flex justify-content-center py-5">
-
 		<div class="row">
 			<div class="col-md-12">
 				<a class="btn btn-secondary" href="{{ path('app_login') }}">Dejà un compte? Se connecter
@@ -39,9 +38,11 @@
 							</div>
 							{{ form_row(registrationForm.email) }}
 							{{ form_row(registrationForm.plainPassword) }}
+
 							<p class="fw-lighter fst-italic fs-6">
 								* champ obligatoire</p>
 							<p class="fw-light fs-5 text-medium-grey ">Votre mot de passe doit contenir :</p>
+
 							<div class="typoRegisterConstraint">
 								<p class="fw-lighter text-medium-grey " id='contraintLength'>
 									<i class="fas fa-check-circle"></i>
@@ -72,7 +73,7 @@
 			</div>
 		</div>
 	</div>
-	<script> 
+	<script>
 		const inputPassword = document.getElementById('registration_form_plainPassword_first');
 const contraintLength = document.getElementById('contraintLength');
 const contraintMajuscule = document.getElementById('contraintMajuscule');
@@ -110,9 +111,7 @@ contraintMinuscule.classList.add('textGreen');
 } else {
 contraintMinuscule.classList.remove('textGreen');
 }
-}
-
-inputPassword.addEventListener('keyup', () => {
+} inputPassword.addEventListener('keyup', () => {
 let actualLength = inputPassword.value.length;
 // console.log(actualLength);
 checkLength(actualLength);
