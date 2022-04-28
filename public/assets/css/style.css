@@ -49,6 +49,22 @@ div {
     height: 50px;
 }
 
+/* ADMIN */
+.h120px {
+    font-size: 20px;
+    font-weight: 500 !important;
+}
+
+.h125px {
+    font-size: 25px;
+    font-weight: 500 !important;
+}
+
+.h130px {
+    font-size: 30px;
+    font-weight: 500 !important;
+}
+
 /* BODY */
 .bodyBottom {
     padding-bottom: 275px;
@@ -160,9 +176,16 @@ div {
 }
 
 
-/* Register */
+/* REGISTER */
 .textGreen {
     color: rgb(47, 170, 47) !important;
+}
+
+/* PURCHASE */
+.smallImgPurchase {
+    margin-right: 10px;
+    height: 80px;
+    object-fit: contain;
 }
 
 /* PAIEMENT THANK YOU */
@@ -179,6 +202,12 @@ div {
     width: 100px;
 }
 
+/* CONTACT */
+.h220px {
+    font-size: 20px;
+    font-weight: 500 !important;
+}
+
 /* FOOTER */
 
 footer {
@@ -193,7 +222,7 @@ footer {
 
 .content-footer {
     font-size: 10 px;
-    padding: 30px 0px 40px;
+    padding: 30px 0px 20px;
     width: auto;
     margin: 0 auto;
     display: flex;

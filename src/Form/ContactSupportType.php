@@ -16,10 +16,22 @@ class ContactSupportType extends AbstractType
     {
         $builder
             ->add('subjectMessage', TextType::class, [
-                'label' => 'Sujet'
+                'label' => 'Sujet',
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Ce champ ne peut être vide',
+                    ]),
+                ],
             ])
             ->add('contentMessage', TextareaType::class, [
-                'label' => 'Message'
+                'label' => 'Message',
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Ce champ ne peut être vide',
+                    ]),
+                ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'E-mail',

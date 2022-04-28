@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+
 class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -29,7 +30,7 @@ class CategoryType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Ce champs est obligatoire',
+                        'message' => 'Ce champs est obligatoire!!',
                     ]),
                 ]
             ]);

@@ -46,6 +46,7 @@ class ProduitType extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Descriptif du produit',
+                'required' => false,
                 'attr' => ['rows' => 4],
             ]);
     }

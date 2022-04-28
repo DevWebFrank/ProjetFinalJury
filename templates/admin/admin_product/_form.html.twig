@@ -27,8 +27,10 @@
 
 			</div>
 		</div>
+		<div>
+			<button class="btn btn-primary mt-3">{{ button_label|default('Enregistrer') }}</button>
+			{{ form_end(form) }}
+		</div>
 
-		<button class="btn btn-primary mt-3">{{ button_label|default('Enregistrer') }}</button>
-		{{ form_end(form) }}
 	</div>
 </div>

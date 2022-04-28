@@ -41,7 +41,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new Length([
                         'min' => 4,
-                        'minMessage' => 'Ce champs doit faire au minimum {{ limit }} caractères.'
+                        'minMessage' => 'Ce champ doit faire au minimum {{ limit }} caractères.'
                     ])
                 ]
             ])
@@ -49,11 +49,18 @@ class RegistrationFormType extends AbstractType
             ->add('birthDay', DateType::class, [
                 'label' => 'Date de naissance',
                 'required' => false,
+                'years' => range(date('Y') - 75, date("Y", strtotime('-15 years'))),
+                'placeholder' => '--- Choisir ---',
+
+
             ])
 
             ->add('adresse', TextType::class, [
                 'label' => ' Votre adresse',
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Votre adresse*'
+                ]
             ])
 
             ->add('telephone', TextType::class, [
@@ -65,7 +72,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new Length([
                         'max' => 15,
-                        'maxMessage' => 'Ce champs doit faire au maximum {{ limit }} caractères.'
+                        'maxMessage' => 'Ce champ doit faire au maximum {{ limit }} caractères.'
                     ])
                 ]
             ])

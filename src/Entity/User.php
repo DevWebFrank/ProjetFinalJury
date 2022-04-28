@@ -32,11 +32,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
-    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -50,15 +50,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $purchases;
 
     #[ORM\Column(type: 'string', length: 100,)]
-    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
     private $firstName;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
-    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ces champs ne peut être vide')]
     private $birthDay;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
     private $adresse;
 
 

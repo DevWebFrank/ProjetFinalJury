@@ -19,20 +19,20 @@ class Produit
     private $name;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Le champ ne peut être vide')]
     private $price;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Le champ ne peut être vide')]
     private $imagePath;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'produits')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Le champ ne peut être vide')]
     private $category;
 
     #[ORM\Column(type: 'text')]
-    #[Assert\NotBlank(message: 'Le champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Le champ ne peut être vide')]
     private $description;
 
 

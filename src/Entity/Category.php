@@ -17,12 +17,11 @@ class Category
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champs nom est obligatoire')]
+    #[Assert\NotBlank(message: 'Le champ nom est obligatoiree')]
     private $name;
-    
+
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Le champs image est obligatoire')]
-    #[Assert\NotBlank(message: 'Ce champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Le champ image de la catégorie est obligatoire')]
     private $imagePath;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Produit::class)]

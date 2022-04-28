@@ -17,34 +17,37 @@ class ContactFormType extends AbstractType
         $builder
             ->add('nom', TextType::class, [
                 'label' => 'Nom',
+                'required' => false, // pour enlever le msg "Veuillez renseigner ce champ" du HTML5
                 'attr' => [
                     'placeholder' => 'Nom',
                 ],
-            'constraints' => [
-                new NotBlank([
-                    'message' => 'Ce champs ne peu être vide',
-                ]),
-            ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Ce champ ne peut être vide',
+                    ]),
+                ],
             ])
 
             ->add('prenom', TextType::class, [
                 'label' => 'Prénom',
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'Prénom',
                 ],
-            'constraints' => [
-                new NotBlank([
-                    'message' => 'Ce champs ne peu être vide',
-                ]),
-            ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Ce champ ne peut être vide',
+                    ]),
+                ],
             ])
 
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
+                'required' => false,
                 'attr' => ['rows' => 6],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Ce champs ne peu être vide',
+                        'message' => 'Ce champ ne peut être vide',
                     ]),
                 ],
             ])

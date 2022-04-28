@@ -9,6 +9,7 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class LegalNoticesType extends AbstractType
 {
@@ -28,13 +29,25 @@ class LegalNoticesType extends AbstractType
 
                 ]
             ])
-            ->add('content', CKEditorType::class, [
+            ->add('content', TextareaType::class, [
+                'label' => 'Descriptif du produit',
+                'attr' => [
+                    'rows' => 4,
+                    'cols' => 50
+                ],
+            ])
+
+            /* ->add('content', CKEditorType::class, [
                 'label' => 'texte',
+                'attr' => [
+                    'rows' => 4,
+                    'cols' => 50
+                ],
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'ajouter votre texte ici'
                 ]
-            ]);
+            ]) */;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
