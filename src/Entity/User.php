@@ -54,7 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $firstName;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
-    #[Assert\NotBlank(message: 'Ces champs ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ces champs ne peuvent être vides')]
     private $birthDay;
 
     #[ORM\Column(type: 'string', length: 255)]

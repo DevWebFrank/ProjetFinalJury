@@ -33,6 +33,8 @@ class EditInfoType extends AbstractType
             ->add('birthDay', DateType::class, [
                 'label' => 'Date de naissance',
                 'required' => false,
+                'years' => range(date('Y') - 75, date("Y", strtotime('-15 years'))),
+                'placeholder' => '--- Choisir ---',
             ])
             ->add('adresse', TextType::class, [
                 'label' => ' Adresse',
