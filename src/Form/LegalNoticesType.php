@@ -26,6 +26,7 @@ class LegalNoticesType extends AbstractType
                     Legals::CONDITIONS_GENERALES_UTILISATION => Legals::CONDITIONS_GENERALES_UTILISATION,
                     Legals::CONDITIONS_GENERALES_DE_VENTE => Legals::CONDITIONS_GENERALES_DE_VENTE,
                     Legals::RETOUR_REMBOURSEMENT => Legals::RETOUR_REMBOURSEMENT,
+                    Legals::GESTION_DES_COOKIES => Legals::GESTION_DES_COOKIES,
 
                 ]
             ])

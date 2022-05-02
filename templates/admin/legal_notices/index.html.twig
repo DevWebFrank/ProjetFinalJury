@@ -14,18 +14,20 @@
 						<h5>Gestion des conditions générales</h5>
 					</div>
 					<div class="card-body">
-						<a href="{{ path('admin_legal_notices_edit',{'title':'Mentions Légales'}) }}" class="btn btn-info w-100 mt-2">Mentions légalesP</a>
-						<a href="#" class="btn btn-info w-100 mt-2">Conditions générales de ventes</a>
-						<a href="#" class="btn btn-info w-100 mt-2">Conditions générales d'utilisations</a>
-						<a href="#" class="btn btn-info w-100 mt-2">Retour et remboursement</a>
-						<a href="#" class="btn btn-info w-100 mt-2">Protection des données</a>
+						<a href="{{ path('admin_legal_notice_edit',{'title':'Mentions légales'}) }}" class="btn btn-info w-100 mt-2">Mentions légales</a>
+						<a href="{{ path('admin_legal_notice_edit',{'title':'Conditions générales de ventes'}) }}" class="btn btn-info w-100 mt-2">Conditions générales de ventes</a>
+						<a href="{{ path('admin_legal_notice_edit',{'title':'Conditions générales d\'utilisations'}) }}" class="btn btn-info w-100 mt-2">Conditions générales d'utilisations</a>
+						<a href="{{ path('admin_legal_notice_edit',{'title':'Retour & Remboursement'}) }}" class="btn btn-info w-100 mt-2">Retour et remboursement</a>
+						<a href="{{ path('admin_legal_notice_edit',{'title':'Protections des données'}) }}" class="btn btn-info w-100 mt-2">Protection des données</a>
+						<a href="{{ path('admin_legal_notice_edit',{'title':'Gestion des cookies'}) }}" class="btn btn-info w-100 mt-2">Gestion des cookies</a>
+
 
 						<!-- {# <a href="{{ path('admin_condition_edit',{'nom':'Mentions Légales'}) }}" class="btn btn-info w-100 mt-2">Mentions légales</a>
-																		<a href="{{ path('admin_condition_edit',{'nom':'Conditions générales de ventes'}) }}" class="btn btn-info w-100 mt-2">Conditions générales de ventes</a>
-																	    <a href="{{ path('admin_condition_edit',{'nom':'Conditions générales d\'utilisations'}) }}" class="btn btn-info w-100 mt-2">Conditions générales d'utilisations</a>
-																	    <a href="{{ path('admin_condition_edit',{'nom':'Retour & Remboursement'}) }}" class="btn btn-info w-100 mt-2">Retour et remboursement</a>
-																		<a href="{{ path('admin_condition_edit',{'nom':'Protections des données'}) }}" class="btn btn-info w-100 mt-2">Protection des donéés</a>
-																		#} -->
+<a href="{{ path('admin_condition_edit',{'nom':'Conditions générales de ventes'}) }}" class="btn btn-info w-100 mt-2">Conditions générales de ventes</a>
+<a href="{{ path('admin_condition_edit',{'nom':'Conditions générales d\'utilisations'}) }}" class="btn btn-info w-100 mt-2">Conditions générales d'utilisations</a>
+ <a href="{{ path('admin_condition_edit',{'nom':'Retour & Remboursement'}) }}" class="btn btn-info w-100 mt-2">Retour et remboursement</a>
+<a href="{{ path('admin_condition_edit',{'nom':'Protections des données'}) }}" class="btn btn-info w-100 mt-2">Protection des donéés</a>
+#} -->
 					</div>
 				</div>
 			</div>

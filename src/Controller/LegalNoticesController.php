@@ -21,19 +21,19 @@ class LegalNoticesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/{title}/edit', name: 'admin_legal_notices_edit')]
+    #[Route('/admin/{title}/edit', name: 'admin_legal_notice_edit')]
     public function edit($title, LegalNoticesRepository $legalNoticesRepository, Request $request, EntityManagerInterface $em): Response
     {
-        //je vais chercher la condition qui correspond au nom reçu dans la route
+        //je vais chercher la condition qui correspond au nom reçu en paramétre (dans la route)
         $legalNotice = $legalNoticesRepository->findOneBy([
             'title' => $title
         ]);
 
-        // je crée une variable qui va me permettre de savoir si je suis en train d'éditer ou pas
+        // je crée une variable qui va me permettre de savoir si je suis en train de créer un legalNotice  ou d'en modifier une
         $isEdit = true;
 
-        // si condition est égale à null on la crée
-        if (!$legalNotice) //! = different
+        // si legalNotice est égale à null on la crée
+        if(!$legalNotice) //! = different
         {
             $legalNotice = new LegalNotices();
             $legalNotice->setTitle($title);
@@ -43,8 +43,8 @@ class LegalNoticesController extends AbstractController
         $form = $this->createForm(LegalNoticesType::class, $legalNotice);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isvalid()) {
-            if (!$isEdit) {
+        if($form->isSubmitted() && $form->isvalid()) {
+            if(!$isEdit) {
                 $em->persist($legalNotice);
             }
 
@@ -52,11 +52,11 @@ class LegalNoticesController extends AbstractController
 
             $this->addFlash("success", "Les mentions ont bien été modifiées.");
             return $this->redirectToRoute("admin_legal_notice_edit", [
-                'title' => $title
+                "title" => $title
             ]);
         }
 
-        return $this->render('admin/legal_notices/legal_notices_edit.html.twig', [
+        return $this->render('admin/legal_notices/legal_notice_edit.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -76,7 +76,7 @@ class LegalNoticesController extends AbstractController
         }
 
         return $this->render('customer/legalNotices/document.html.twig', [
-            'condition' => $legalNotice,
+            'legalNotice' => $legalNotice,
         ]);
     }
 }

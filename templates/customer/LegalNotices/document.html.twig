@@ -1,8 +1,8 @@
 {% extends 'base.html.twig'%}
 
-{% block title %}{{ legalNotices.title }}
+{% block title %}
+	{{ legalNotice.title }}
 {% endblock %}
-
 
 {% block body %}
 	<div class="container py-5">
@@ -14,18 +14,16 @@
 				<a class="btn btn-secondary" href="{{ path('home')}}">Retour</a>
 			</div>
 
-			<div class="col-sm-12 col-md-6 col-lg-6">
-
+			<div class="col-md-12 mt-3">
 				<div class="card">
-
+					<div class="card-header">
+						<h1 class="card-title h120px">{{ legalNotice.title }}</h1>
+					</div>
 					<div class="card-body">
-						<h5 class="card-title">{{ condition.title }}</h5>
-						{{ condition.content | raw}}
-
+						{{ legalNotice.content | raw}}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 {% endblock %}
-

@@ -1,5 +1,5 @@
 <footer class="fixed-bottom">
-<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="content-footer">
 				<div class="col-6 col-md-2 bloc footer-contact">
@@ -27,17 +27,13 @@
 					<h3 class="footer-heading">Services</h3>
 					<ul class="liste-client">
 						<li>
-							<a href="#">Conditions générales de vente</a>
+							<a href="{{ path('customer_legal_notice_show',{'title':'Conditions générales de ventes'}) }}">Conditions générales de vente</a>
 						</li>
 						<li>
-							<a href="#">Retour et remboursement</a>
-						</li>
-						<li>
-							<a href="#">FAQs</a>
+							<a href="#">FAQ</a>
 						</li>
 						<li>
 							<a href="{{ path('customer_contact') }}">Contact</a>
-
 						</li>
 					</ul>
 				</div>
@@ -47,16 +43,19 @@
 
 					<ul class="liste-apropos">
 						<li>
-							<a href="#">Gestion des cookies</a>
+							<a href="{{ path('customer_legal_notice_show',{'title':'Gestion des cookies'}) }}">Gestion des cookies</a>
+
 						</li>
 						<li>
 							<a href="{{ path('customer_legal_notice_show',{'title':'Mentions légales'}) }}">Mentions légales</a>
 						</li>
 						<li>
-							<a href="#">Protection des données</a>
+							<a href="{{ path('customer_legal_notice_show',{'title':'Protections des données'}) }}">Protection des données</a>
+
 						</li>
 						<li>
 							<a href="#">Plan du site</a>
+
 						</li>
 					</ul>
 				</div>
@@ -76,7 +75,7 @@
 							<a href="#"><img src="{{ asset('assets/img/medias/github.png') }}" alt="icone réseau Git-hub">Git-Hub</a>
 						</li>
 						<li>
-							<a href="#"><img src="{{ asset('assets/img/medias/instragram.png') }}" alt="icones réseau Instragram">Instragram</a>
+							<a href="#"><img src="{{ asset('assets/img/medias/instagram.png') }}" alt="icones réseau Instagram">Instagram</a>
 						</li>
 					</ul>
 				</div>

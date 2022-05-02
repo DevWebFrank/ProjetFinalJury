@@ -5,13 +5,10 @@
 
 {% block body %}
 	<div class="container py-5">
-
 		<div class="row">
 			{% include "_messages_flash.html.twig" %}
 			<div class="col-12 ">
-
 				<a class="btn btn-dark" href="{{ path('admin_legal_notices') }}">Revenir à la liste</a>
-
 			</div>
 
 			<div class="col-sm-12 mt-3">
@@ -20,31 +17,27 @@
 						<h1 class="card-title h120px">Edition de document</h1>
 					</div>
 					{#<!-- <div class="card-body">
-													{{ form_start(form) }}
-													{{ form_widget(form) }}
-													<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>
-													{{ form_end(form) }}
-												</div> -->#}
-
-
+																							{{ form_start(form) }}
+																							{{ form_widget(form) }}
+																							<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>
+																							{{ form_end(form) }}
+																						</div> -->#}
 					<div class="card-body">
 						{{ form_start(form) }}
 						<p class="mb-1">{{ form_row(form.title) }}</p>
 						<p class="mb-1">{{ form_row(form.content) }}</p>
-						{#<!--<p class="mb-1">{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</p> -->#}
 						<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>
 						{{ form_end(form) }}
 					</div>
 
 					{#<div class="card-body">
-											{{ form_start(form) }}
-											{{ form_row(form.title) }} <!--<ou {{ form_widget(form.title) }}  >-->
-											<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>																				
-											{{ form_end(form, {render_rest: false}) }}
-										</div>#}
+																					{{ form_start(form) }}
+																					{{ form_row(form.title) }} <!--<ou {{ form_widget(form.title) }}  >-->
+																					<button class="btn btn-primary mt-3" type="submit">Enregistrer</button>																				
+																					{{ form_end(form, {render_rest: false}) }}
+																				</div>#}
 				</div>
 			</div>
-
 		</div>
 	</div>
 
