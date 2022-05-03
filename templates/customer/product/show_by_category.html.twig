@@ -2,11 +2,12 @@
 
 {% block description %}
 	{{ category.name }}
-	fard, pinceaux
+	beauté des yeux, beauté des lévres, pinceaux, teint
 {% endblock %}
 
 {% block title %}
 	{{ category.name }}
+	Beauty-Shop | Offre petit prix
 {% endblock %}
 
 {% block body %}
@@ -14,7 +15,7 @@
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-12">
-					<h3 class="text-center">{{ category.name }}</h3>
+					<h1 class="text-center">{{ category.name }}</h1>
 
 					<div class="col-12 d-flex justify-content-end">
 						<a class="btn btn-primary btn-sm" href="{{ path('home') }}">
@@ -24,28 +25,25 @@
 					</div>
 				</div>
 
-				
-					{% for product in category.produits %}
+				{% for product in category.produits %}
 
-						<div class="col-sm-12 col-md-6 col-lg-4 mt-3">
-							<div class="card">
-								<img src="{{ product.imagePath }}" class="imageCard" alt="image_category">
+					<div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+						<div class="card">
+							<img src="{{ product.imagePath }}" class="imageCard" alt="image_category">
 
-								<div class="card-body">
-									<h5 class="card-title">{{ product.name|u.truncate('25', '...',false) }}</h5>
-									<p>{{ product.price | priceEuro }}</p>
-									<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary w-100">Consulter</a>
+							<div class="card-body">
+								<h5 class="card-title">{{ product.name|u.truncate('25', '...',false) }}</h5>
+								<p>{{ product.price | priceEuro }}</p>
+								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary w-100">Consulter</a>
 
-								</div>
 							</div>
 						</div>
+					</div>
 
-					{% endfor %}
-				
+				{% endfor %}
 
 			</div>
 		</div>
 	</section>
-
 
 {% endblock %}

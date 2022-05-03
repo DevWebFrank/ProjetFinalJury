@@ -5,8 +5,10 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -41,9 +43,17 @@ class EditInfoType extends AbstractType
                 'required' => false
             ])
 
-            ->add('telephone', textType::class, [
+            ->add('telephone', TextType::class, [
                 'label' => 'Téléphone',
-                'required' => false
+                'required' => false,
+                'constraints' => [
+                    new Length([
+                        'min' => 10,
+                        'minMessage' => '{{ label }} doit faire au minimum {{ limit }} chiffres.',
+                        'max' => 15,
+                        'maxMessage' => '{{ label }} doit faire au maximum {{ limit }} chiffres.'
+                    ])
+                ]
             ])
 
             ->add('email', EmailType::class, [

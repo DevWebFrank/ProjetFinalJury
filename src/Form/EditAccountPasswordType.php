@@ -3,12 +3,13 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength;
 
 class EditAccountPasswordType extends AbstractType
 {
@@ -33,6 +34,17 @@ class EditAccountPasswordType extends AbstractType
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => false,
                 'mapped' => false,
+
+            'constraints' => [
+                new PasswordStrength(
+                    [
+                        'minLength' => 8, // nombre de caractère minimum
+                        'tooShortMessage' => 'Le mot de passe doit contenir au minimum 8 caractéres.',
+                        'minStrength' => 4, // 4 = trong le niveau de robustesse du mot de passe (de 1 à 5)
+                        'message' => 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.',
+                    ]
+                )
+            ],
                 'first_options'  => [
                     'label' => 'Nouveau mot de passe',
                     'constraints' => [

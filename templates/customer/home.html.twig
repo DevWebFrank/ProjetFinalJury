@@ -1,6 +1,13 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Beauty-shop - Maquillage, Cosmétique, Soin du Visage et du Corps
+{% block description %}
+	Découvrez un large choix de maquillage pas cher, bio, nouveauté, cosmétique, soin du visage et du corps
+
+{% endblock %}
+
+
+{% block title %}Maquillage _ Beauty-shop | Offres | Super prix
+
 {% endblock %}
 
 {% block body %}
@@ -41,12 +48,14 @@
 
 	<section class="bg-light">
 
-		<div class="container py-5"><!-- LES CATEGORIES -->
+		<div
+			class="container py-5">
+			<!-- LES CATEGORIES -->
 			<div class="row">
 				{% include "_messages_flash.html.twig" %}
 
 				<div class="col-12">
-					<h3 class="text-center">Les catégories</h3>
+					<h1 class="text-center">Les catégories</h1>
 				</div>
 
 				{% for category in categories %}
@@ -66,44 +75,41 @@
 
 			</div>
 		</div>
-	</section><!-- FIN DES CATEGORIES --
-	>
-
-	<section><!-- LES NOUVEAUTES -->
-		<div
-			class="container py-5">
-			
-
-			<div class="row">
-
-				<div class="col-12">
-					<h3 class="text-center">Les nouveautés</h3>
-				</div>
-
-				{% for product in products %}
-
-					<div class="col-sm-12 col-md-6 col-lg-4 mt-3">
-						<div class="card">
-							<img src="{{ product.imagePath }}" class="card-img-top imageCategory" alt="image_nouveaute">
-
-							<div class="card-body">
-								<h5 class="card-title">{{ product.name|u.truncate('25', '...',false) }}</h5>
-								<p>{{ product.price | priceEuro }}</p>
-								<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary btn-sm mx-3">Consulter</a>
-								<a class="btn btn-success btn-sm mx-3" href="{{ path('cart_add',{ 'id' : product.id }) }}?routeToRedirect=home">
-									<i class="fa-solid fa-cart-plus"></i>
-								</a>
+	</section>
+	<!-- FIN DES CATEGORIES --
+		>
+	
+		<section><!-- LES NOUVEAUTES -->
+	<div class="container py-5">
 
 
-							</div>
+		<div class="row">
+
+			<div class="col-12">
+				<h2 class="text-center">Les nouveautés</h2>
+			</div>
+
+			{% for product in products %}
+
+				<div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+					<div class="card">
+						<img src="{{ product.imagePath }}" class="card-img-top imageCategory" alt="image_nouveaute">
+
+						<div class="card-body">
+							<h5 class="card-title">{{ product.name|u.truncate('25', '...',false) }}</h5>
+							<p>{{ product.price | priceEuro }}</p>
+							<a href="{{ path('boutique_product_detail',{'id': product.id} ) }}" class="btn btn-primary btn-sm mx-3">Consulter</a>
+							<a class="btn btn-success btn-sm mx-3" href="{{ path('cart_add',{ 'id' : product.id }) }}?routeToRedirect=home">
+								<i class="fa-solid fa-cart-plus"></i>
+							</a>
+
+
 						</div>
 					</div>
+				</div>
 
-				{% endfor %}
-			</div>
+			{% endfor %}
 		</div>
-	</section><!-- FIN DES NOUVEAUTES -->
-	
-
-
-{% endblock %}
+	</div>
+</section>
+<!-- FIN DES NOUVEAUTES -->{% endblock %}

@@ -9,10 +9,11 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -25,18 +26,18 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Nom*',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Nom*'
+                    'placeholder' => 'Nom'
                 ]
             ])
 
             ->add('firstName', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'Prénom*',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Prénom*'
+                    'placeholder' => 'Prénom'
                 ],
                 'constraints' => [
                     new Length([
@@ -47,7 +48,7 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add('birthDay', DateType::class, [
-                'label' => 'Date de naissance',
+                'label' => 'Date de naissance*',
                 'required' => false,
                 'years' => range(date('Y') - 75, date("Y", strtotime('-15 years'))),
                 'placeholder' => '--- Choisir ---',
@@ -56,32 +57,34 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add('adresse', TextType::class, [
-                'label' => ' Votre adresse',
+                'label' => ' Votre adresse*',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Votre adresse*'
+                    'placeholder' => 'Votre adresse'
                 ]
             ])
 
-            ->add('telephone', TextType::class, [
-                'label' => 'Votre téléphone',
+            ->add('telephone', TelType::class, [
+                'label' => 'Votre téléphone*',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Téléphone*'
+                    'placeholder' => 'Téléphone'
                 ],
                 'constraints' => [
                     new Length([
+                        'min' => 10,
+                        'minMessage' => 'Votre téléphone doit faire au minimum {{ limit }} chiffres.',
                         'max' => 15,
-                        'maxMessage' => 'Ce champ doit faire au maximum {{ limit }} caractères.'
+                        'maxMessage' => 'Votre téléphone doit faire au maximum {{ limit }} chiffres.'
                     ])
                 ]
             ])
 
             ->add('email', EmailType::class, [
-                'label' => 'Adresse email',
+                'label' => 'Adresse email*',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Email*'
+                    'placeholder' => 'Email'
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -93,7 +96,7 @@ class RegistrationFormType extends AbstractType
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => 'Accepter les CGU',
+                'label' => 'Accepter les CGU*',
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Veuillez accepter les CGU',
@@ -103,13 +106,12 @@ class RegistrationFormType extends AbstractType
 
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'invalid_message' => 'Les mots de passe ne correspondent pas.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'mapped' => false,
-                'label' => 'Mot de passe',
                 'required' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
-                    'placeholder' => 'Mot de passe*'
                 ],
                 'constraints' => [
                     new PasswordStrength(
@@ -123,9 +125,9 @@ class RegistrationFormType extends AbstractType
                 ],
 
                 'first_options' => [
-                    'label' => 'Mot de passe',
+                    'label' => 'Mot de passe*',
                     'attr' => [
-                        'placeholder' => 'Mot de passe*'
+                        'placeholder' => 'Mot de passe'
                     ],
                     'constraints' => [
                         new NotBlank([
@@ -135,10 +137,14 @@ class RegistrationFormType extends AbstractType
                 ],
 
                 'second_options' => [
-                    'label' => 'Confirmer votre mot de passe',
+                    'label' => 'Confirmer votre mot de passe*',
                     'attr' => [
-                        'placeholder' => 'Confirmer votre mot de passe*'
+                        'placeholder' => 'Confirmer votre mot de passe'
                     ],
+                    'invalid_message' => 'The password fields must match.',
+                    // Instead of being set onto the object directly,
+                    // this is read and encoded in the controller
+                    'mapped' => false,
                     'constraints' => [
                         new NotBlank([
                             'message' => 'Vous devez confirmer votre mot de passe',

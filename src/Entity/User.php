@@ -44,6 +44,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Un numéro de téléphone valide est obligatoire')]
+    // #[Assert\PositiveOrZero(message:'Votre téléphone doit contenir que des chiffres')]
+    #[Assert\Regex(pattern: '/[0-9]{10}/', message: 'Votre téléphone doit contenir que des chiffres')]
+    // #[Assert\Regex(pattern: '/^\(0\)[0-9]*$/', message: 'Votre téléphone doit contenir que des chiffres')]
+
     private $telephone;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class)]
