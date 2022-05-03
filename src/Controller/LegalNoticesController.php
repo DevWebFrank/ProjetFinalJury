@@ -33,7 +33,7 @@ class LegalNoticesController extends AbstractController
         $isEdit = true;
 
         // si legalNotice est égale à null on la crée
-        if(!$legalNotice) //! = different
+        if (!$legalNotice) //! = different
         {
             $legalNotice = new LegalNotices();
             $legalNotice->setTitle($title);
@@ -43,8 +43,8 @@ class LegalNoticesController extends AbstractController
         $form = $this->createForm(LegalNoticesType::class, $legalNotice);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isvalid()) {
-            if(!$isEdit) {
+        if ($form->isSubmitted() && $form->isvalid()) {
+            if (!$isEdit) {
                 $em->persist($legalNotice);
             }
 
@@ -76,6 +76,23 @@ class LegalNoticesController extends AbstractController
         }
 
         return $this->render('customer/legalNotices/document.html.twig', [
+            'legalNotice' => $legalNotice,
+        ]);
+    }
+
+    #[Route('/customer/{title}/planDuSite',  name: 'customer_legalNotices_planDuSite')]
+    public function planDeSite($title, LegalNoticesRepository $legalNoticesRepository, Request $request, EntityManagerInterface $em): Response
+    {
+        $legalNotice = $legalNoticesRepository->findOneBy([
+            'title' => $title
+        ]);
+
+        if (!$legalNotice) //! = different
+        {
+            return $this->redirectToRoute("home");
+        }
+
+        return $this->render('customer/legalNotices/planDuSite.html.twig', [
             'legalNotice' => $legalNotice,
         ]);
     }

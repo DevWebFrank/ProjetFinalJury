@@ -208,6 +208,7 @@ div {
     font-weight: 500 !important;
 }
 
+
 /* FOOTER */
 
 footer {
@@ -321,6 +322,18 @@ footer {
     display: flex;
     align-items: center;
 }
+
+
+/* Plan du site */
+.bordertop {
+    border-top: 1px solid rgb(0, 0, 0);
+    padding-top: 10px;
+}
+
+.bordertop h1 {
+    color: #2f9c67;
+}
+
 
 /* reset password */
 .resetText {
