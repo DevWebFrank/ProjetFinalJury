@@ -19,6 +19,7 @@ class StripeController extends AbstractController
         Stripe::setApiKey('sk_test_51KP32hCUkRKEMw8wrQnwIQWFtSAtCxFienXJxwN0NCpQtGhSYHf3iiLbxFV2w1hP60f48uOs5QwVXpGoweXjC3sj00ZXMJA5vK');
 
         $YOUR_DOMAIN = 'http://localhost:8000';
+        // $YOUR_DOMAIN = 'https://projetjury.frank-bollea.com';
 
         /** @var User $user */
         $user = $this->getUser();
@@ -50,7 +51,7 @@ class StripeController extends AbstractController
             ],
             'line_items' => [[
                 $productForStripe
-                
+
             ]],
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/boutique/paiement/success',
@@ -59,5 +60,4 @@ class StripeController extends AbstractController
 
         return $this->redirect($checkout_session->url);
     }
-    
 }

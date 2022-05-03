@@ -75,51 +75,51 @@
 	</div>
 	<script>
 		const inputPassword = document.getElementById('registration_form_plainPassword_first');
-		const contraintLength = document.getElementById('contraintLength');
-		const contraintMajuscule = document.getElementById('contraintMajuscule');
-		const contraintChiffre = document.getElementById('contraintChiffre');
-		const contraintMinuscule = document.getElementById('contraintMinuscule');
+const contraintLength = document.getElementById('contraintLength');
+const contraintMajuscule = document.getElementById('contraintMajuscule');
+const contraintChiffre = document.getElementById('contraintChiffre');
+const contraintMinuscule = document.getElementById('contraintMinuscule');
 
 
-		const checkLength = (item) => {
-		if (item >= 8 && item <= 40) {
-		contraintLength.classList.add('textGreen');
-		} else {
-		contraintLength.classList.remove('textGreen');
-		}
-		}
+const checkLength = (item) => {
+if (item >= 8 && item <= 40) {
+contraintLength.classList.add('textGreen');
+} else {
+contraintLength.classList.remove('textGreen');
+}
+}
 
-		const checkMajuscule = (item) => {
-		if (item.match(new RegExp("[A-Z]"))) {
-		contraintMajuscule.classList.add('textGreen');
-		} else {
-		contraintMajuscule.classList.remove('textGreen');
-		}
-		}
+const checkMajuscule = (item) => {
+if (item.match(new RegExp("[A-Z]"))) {
+contraintMajuscule.classList.add('textGreen');
+} else {
+contraintMajuscule.classList.remove('textGreen');
+}
+}
 
-		const checkChiffre = (item) => {
-		if (item.match(new RegExp("[0-9]"))) {
-		contraintChiffre.classList.add('textGreen');
-		} else {
-		contraintChiffre.classList.remove('textGreen');
-		}
-		}
+const checkChiffre = (item) => {
+if (item.match(new RegExp("[0-9]"))) {
+contraintChiffre.classList.add('textGreen');
+} else {
+contraintChiffre.classList.remove('textGreen');
+}
+}
 
-		const checkMinuscule = (item) => {
-		if (item.match(new RegExp("[a-z]"))) {
-		contraintMinuscule.classList.add('textGreen');
-		} else {
-		contraintMinuscule.classList.remove('textGreen');
-		}
-		} inputPassword.addEventListener('keyup', () => {
-		let actualLength = inputPassword.value.length;
-		// console.log(actualLength);
-		checkLength(actualLength);
+const checkMinuscule = (item) => {
+if (item.match(new RegExp("[a-z]"))) {
+contraintMinuscule.classList.add('textGreen');
+} else {
+contraintMinuscule.classList.remove('textGreen');
+}
+} inputPassword.addEventListener('keyup', () => {
+let actualLength = inputPassword.value.length;
+// console.log(actualLength);
+checkLength(actualLength);
 
-		let inputValue = inputPassword.value;
-		checkMajuscule(inputValue);
-		checkChiffre(inputValue);
-		checkMinuscule(inputValue);
-		})
+let inputValue = inputPassword.value;
+checkMajuscule(inputValue);
+checkChiffre(inputValue);
+checkMinuscule(inputValue);
+})
 	</script>
 {% endblock %}
