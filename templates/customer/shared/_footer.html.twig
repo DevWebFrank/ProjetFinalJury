@@ -2,10 +2,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="content-footer">
-				<div class="col-6 col-md-2 bloc footer-contact">
-
+				<div class="col-md-2 col-sm-3 bloc footer-contact">
 					<h3 class="footer-heading">Coordonnées</h3>
-
 					<ul class="liste-contact">
 						<li>
 							<i class="fas fa-map-marker-alt fa-fw"></i>
@@ -23,11 +21,12 @@
 					</ul>
 				</div>
 
-				<div class="col-6 col-md-2 bloc footer-client">
+				<div class="col-md-2 col-sm-3 bloc footer-client">
+
 					<h3 class="footer-heading">Services</h3>
 					<ul class="liste-client">
 						<li>
-							<a href="{{ path('customer_legal_notice_show',{'title':'Conditions générales de ventes'}) }}">Conditions générales de vente</a>
+							<a href="{{ path('customer_legal_notice_show',{'title':'Conditions générales de ventes'}) }}">CGV</a>
 						</li>
 						<li>
 							<a href="#">FAQ</a>
@@ -38,33 +37,28 @@
 					</ul>
 				</div>
 
-				<div class="col-6 col-md-2 bloc footer-apropos">
-					<h3 class="footer-heading">A propos</h3>
+				<div class="col-md-2 col-sm-3 bloc footer-apropos">
 
+					<h3 class="footer-heading">A propos</h3>
 					<ul class="liste-apropos">
 						<li>
 							<a href="{{ path('customer_legal_notice_show',{'title':'Gestion des cookies'}) }}">Gestion des cookies</a>
-
 						</li>
 						<li>
 							<a href="{{ path('customer_legal_notice_show',{'title':'Mentions légales'}) }}">Mentions légales</a>
 						</li>
 						<li>
 							<a href="{{ path('customer_legal_notice_show',{'title':'Protections des données'}) }}">Protection des données</a>
-
 						</li>
 						<li>
 							<a href="{{ path('customer_legalNotices_planDuSite',{'title':'Plan du site'}) }}">Plan du site</a>
-
-
 						</li>
 					</ul>
 				</div>
 
-				<div class="col-6 col-md-2 bloc footer-media">
+				<div class="col-md-2 col-sm-3 bloc footer-media">
 
 					<h3 class="footer-heading">Nos réseaux</h3>
-
 					<ul class="liste-media">
 						<li>
 							<a href="#"><img src="{{ asset('assets/img/medias/fb.png') }}" alt="icone réseau Facebook">Facebook</a>
@@ -81,7 +75,12 @@
 					</ul>
 				</div>
 			</div>
-			<div class="text-center">
-				<p class="footer-copyright mb-2">2022 © Iboy, All Rights Reserved</p>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="text-center">
+					<p class="footer-copyright mb-2">2022 © Iboy, All Rights Reserved</p>
+				</div>
 			</div>
-		</footer>
+		</div>
+	</footer>

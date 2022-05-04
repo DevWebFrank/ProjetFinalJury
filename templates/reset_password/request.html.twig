@@ -5,29 +5,30 @@
 
 {% block body %}
 	<div class="container mt-5">
-		<div class="row justify-content-center">
+		<div class="row">
+			<div class="col-12 d-flex justify-content-center">
+				<div class="col-md-6">
+					{% for flashError in app.flashes('reset_password_error') %}
+						<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+					{% endfor %}
+					<h1 class="text-center fs-2">Mot de passe oublié ?</h1>
 
-			<div class="col-6">
-				{% for flashError in app.flashes('reset_password_error') %}
-					<div class="alert alert-danger" role="alert">{{ flashError }}</div>
-				{% endfor %}
-				<h1 class="text-center fs-2">Mot de passe oublié ?</h1>
+					<div class="text-center mt-4">
+						<small>
+							<p class="fw-lighter text-medium-grey">Saisissez et validez l'adresse e-mail de votre compte Beauty-Shop.</p>
+							<p class="fw-lighter text-medium-grey">Vous recevrez ensuite par e-mail un lien vers une page vous permettant de créer facilement votre nouveau mot de passe.
+							</p>
+						</small>
+					</div>
 
-				<div class="text-center mt-4">
-					<small>
-						<p class="fw-lighter text-medium-grey">Saisissez et validez l'adresse e-mail de votre compte Beauty-Shop.</p>
-						<p class="fw-lighter text-medium-grey">Vous recevrez ensuite par e-mail un lien vers une page vous permettant de créer facilement votre nouveau mot de passe.
-						</p>
-					</small>
+					{{ form_start(requestForm) }}
+					{{ form_row(requestForm.email) }}
+					<p class="fw-lighter text-medium-grey resetText">*Saisissez l’adresse renseignée lors de votre inscription sur Beauty-Shop.</p>
+
+
+					<button class="col-12 btn btn-primary mb-5">VALIDER</button>
+					{{ form_end(requestForm)}}
 				</div>
-
-				{{ form_start(requestForm) }}
-				{{ form_row(requestForm.email) }}
-				<p class="fw-lighter text-medium-grey resetText">*Saisissez l’adresse renseignée lors de votre inscription sur Beauty-Shop.</p>
-
-
-				<button class="col-12 btn btn-primary mb-5">VALIDER</button>
-				{{ form_end(requestForm) }}
 			</div>
 		</div>
 	</div>
