@@ -16,7 +16,7 @@ label,
 input,
 div {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 18px !important;
+    font-size: 18px;
     font-weight: 300 !important;
 }
 
@@ -67,7 +67,7 @@ div {
 
 /* BODY */
 .bodyBottom {
-    padding-bottom: 500px;
+    padding-bottom: 50px;
 }
 
 .imageCategory {
@@ -219,11 +219,13 @@ footer {
     color: #333;
     display: flex;
     flex-direction: column;
+    position: relative;
+    bottom: auto;
 
 }
 
 .content-footer {
-    font-size: 10 px;
+    font-size: 12px;
     padding: 30px 0px 20px;
     width: auto;
     margin: 0 auto;
@@ -233,6 +235,10 @@ footer {
     flex: 1 0 auto;
     justify-content: center;
     align-items: flex-start;
+}
+
+.content-footer ul {
+    font-size: 15px;
 }
 
 .bloc {
@@ -296,6 +302,7 @@ footer {
 .liste-client a,
 .liste-apropos a,
 .liste-media a {
+    font-size: 15px;
     text-decoration: none;
     color: #888;
 }
@@ -317,7 +324,7 @@ footer {
 }
 
 .liste-media a {
-    font-size: 30px;
+    font-size: 15px;
     text-decoration: none;
     color: #444;
     display: flex;
