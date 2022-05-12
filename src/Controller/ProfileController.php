@@ -159,11 +159,14 @@ class ProfileController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $contentMessage = $form->get('contentMessage')->getData();
             $subjectMessage = $form->get('subjectMessage')->getData();
+            $nom = $form->get('nom')->getData();
+            $prenom = $form->get('prenom')->getData();
+            $telephone = $form->get('telephone')->getData();
 
             // j'appelle le service que je viens de créer pour envoyer des mails avec 3 parametres
-            $sendPreparedMail->sendMailToSupport($user->getEmail(), $contentMessage, $subjectMessage);
+            $sendPreparedMail->sendMailToSupport($user->getEmail(), $contentMessage, $subjectMessage, $nom, $prenom, $telephone);
 
-            $this->addFlash("success", "Le mail a bien été envoyé");
+            $this->addFlash("success", "L'email a bien été envoyé");
             return $this->redirectToRoute("profile_detail");
         }
 

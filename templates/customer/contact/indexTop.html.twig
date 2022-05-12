@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-12 text-center contactBg">
 				<h1>Nous contacter</h1>
-				<h2 class="h220px">Contacter notre équipe pour en savoir plus sur FFR</h2>
+				<h2 class="h220px">Contacter notre équipe pour en savoir plus sur Beauty-Shop</h2>
 			</div>
 
 
@@ -33,6 +33,9 @@
 					</div>
 				</div>
 
+				<div class="form-group col-8 mt-3">
+					{{ form_row(formContact.subjectMessage, {'attr': {'class': 'form-control'}}) }}
+				</div>
 				<div class="form-group">
 					{{ form_row(formContact.message, {'attr': {'class': 'form-control'}}) }}
 				</div>

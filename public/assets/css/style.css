@@ -184,13 +184,15 @@ div {
 /* PURCHASE */
 .smallImgPurchase {
     margin-right: 10px;
-    height: 80px;
+    height: 40px;
     object-fit: contain;
 }
 
 /* PAIEMENT THANK YOU */
 .imgThankYou img {
-    width: 1000px;
+    height: 400px;
+    object-fit: contain;
+    width: 100%;
 }
 
 .logoThankYou a {

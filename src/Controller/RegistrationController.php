@@ -50,7 +50,6 @@ class RegistrationController extends AbstractController
         } 
 
         
-
         //Si je viens d'arriver sur la page, on affiche la vue
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),

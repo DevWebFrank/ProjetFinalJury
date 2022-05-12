@@ -33,6 +33,9 @@ class CartController extends AbstractController
         }
     }
 
+    /**
+     * Affiche le detail du panier
+     */
     #[Route('/panier/detail', name: 'cart_detail')]
     public function detailCart(HandleCart $handleCart)
     {
@@ -48,6 +51,9 @@ class CartController extends AbstractController
         ]);
     }
 
+    /**
+     * quand payement validé ça vide le panier
+     */
     #[Route('/panier/supprimerproduit/{id}', name: 'cart_remove_product')]
     public function deleteItemCart(int $id, HandleCart $handleCart)
     {

@@ -30,8 +30,11 @@ class ContactController extends AbstractController
             $contentMessage =  $form->get('contentMessage')->getData();
             $subjectMessage =  $form->get('subjectMessage')->getData();
             $email =  $form->get('email')->getData();
+            $nom = $form->get('nom')->getData();
+            $prenom = $form->get('prenom')->getData();
+            $telephone = $form->get('telephone')->getData();
 
-            $sendPreparedMail->sendMailToSupport($email, $contentMessage, $subjectMessage);
+            $sendPreparedMail->sendMailToSupport($email, $contentMessage, $subjectMessage, $nom, $prenom, $telephone);
 
             $this->addFlash("success", "Votre mail à bien été envoyé");
             return $this->redirectToRoute("home");
@@ -54,11 +57,12 @@ class ContactController extends AbstractController
             $nom = $form->get('nom')->getData();
             $prenom = $form->get('prenom')->getData();
             $email = $form->get('email')->getData();
+            $subjetMessage = $form->get('subjectMessage')->getData();
             $message = $form->get('message')->getData();
 
-            $sendPreparedMail->sendMailToContact($nom, $prenom, $email, $message);
+            $sendPreparedMail->sendMailToContact($email, $prenom, $nom, $message, $subjetMessage);
 
-            $this->addFlash('success', 'Votre message a été envoyé');
+            $this->addFlash('success', 'Votre demande de contact a été envoyé');
             return $this->redirectToRoute('home');
         }
 

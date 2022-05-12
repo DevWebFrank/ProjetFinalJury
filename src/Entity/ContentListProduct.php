@@ -14,10 +14,6 @@ class ContentListProduct
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: ListProduct::class, inversedBy: 'contentListProducts')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $listProduct;
-
     #[ORM\ManyToOne(targetEntity: Produit::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $product;
@@ -32,18 +28,6 @@ class ContentListProduct
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getListProduct(): ?ListProduct
-    {
-        return $this->listProduct;
-    }
-
-    public function setListProduct(?ListProduct $listProduct): self
-    {
-        $this->listProduct = $listProduct;
-
-        return $this;
     }
 
     public function getProduct(): ?Produit

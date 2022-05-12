@@ -26,30 +26,33 @@ class PaymentResultController extends AbstractController
             ]
         );
 
-        $invoice = new Invoice();
+        if (!$purchase->getInvoice()) {
 
-        $invoice->setPurchase($purchase);
-        $invoice->setIsPayed(1);
-        $invoice->setTotal($handleCart->getTotalPanier());
 
-        $em->persist($invoice);
+            $invoice = new Invoice();
 
-        $productsDetail = $handleCart->detailPanier();
+            $invoice->setPurchase($purchase);
+            $invoice->setIsPayed(1);
+            $invoice->setTotal($handleCart->getTotalPanier());
 
-        foreach ($productsDetail as $item) {
-            $contentInvoice = new ContentInvoice();
+            $em->persist($invoice);
 
-            $contentInvoice->setImageProduct($item->getProduct()->getImagePath());
-            $contentInvoice->setInvoice($invoice);
-            $contentInvoice->setPriceProduct($item->getProduct()->getPrice());
-            $contentInvoice->setProductName($item->getProduct()->getName());
-            $contentInvoice->setQuantity($item->getQty());
+            $productsDetail = $handleCart->detailPanier();
 
-            $em->persist($contentInvoice);
+            foreach ($productsDetail as $item) {
+                $contentInvoice = new ContentInvoice();
+
+                $contentInvoice->setImageProduct($item->getProduct()->getImagePath());
+                $contentInvoice->setInvoice($invoice);
+                $contentInvoice->setPriceProduct($item->getProduct()->getPrice());
+                $contentInvoice->setProductName($item->getProduct()->getName());
+                $contentInvoice->setQuantity($item->getQty());
+
+                $em->persist($contentInvoice);
+            }
+
+            $em->flush();
         }
-
-        $em->flush();
-
         #{Apres le paiement, vidé le panier}#
         $handleCart->emptyCart();
 

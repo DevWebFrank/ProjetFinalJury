@@ -15,7 +15,7 @@ class SendPreparedMail
         $this->mailer = $mailer;
     }
 
-    public function sendMailToSupport(string $email, string $contentMessage, string $subjectMessage)
+    public function sendMailToSupport(string $email, string $contentMessage, string $subjectMessage, string $nom, string $prenom, string $telephone)
     {
         $email = (new TemplatedEmail())
             ->from('noreply@monsite.com')
@@ -25,12 +25,15 @@ class SendPreparedMail
             ->context([
                 'emailCustomer' => $email,
                 'contentMessage' => $contentMessage,
-                'subjectMessage' => $subjectMessage
+                'subjectMessage' => $subjectMessage,
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'telephone' => $telephone,
             ]);
 
         $this->mailer->send($email);
     }
-/*
+    /*
     public function sendMailToContact(string $email, string $nom, string $prenom, string $message)
     {
         $contactEmail = (new TemplatedEmail())
@@ -49,22 +52,23 @@ class SendPreparedMail
         $this->mailer->send($contactEmail);
     } */
 
-     
-    public function sendMailToContact(string $email, string $contentMessage, string $subjectMessage, string $message)
+
+    public function sendMailToContact(string $email, string $prenom, string $nom, string $message, string $subjectMessage)
     {
         $contactEmail = (new TemplatedEmail())
             ->from('noreply@monsite.com')
             ->to('frank.bollea@gmail.com')
-            
-            ->subject($message)
+
+            ->subject($subjectMessage)
             ->htmlTemplate('email/contact.html.twig')
             ->context([
                 'emailCustomer' => $email,
-                'contentMessage' => $contentMessage,
+                'prenom' => $prenom,
+                'nom' => $nom,
                 'subjectMessage' => $subjectMessage,
                 'message' => $message,
             ]);
 
         $this->mailer->send($contactEmail);
-    } 
+    }
 }

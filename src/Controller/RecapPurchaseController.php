@@ -30,18 +30,18 @@ class RecapPurchaseController extends AbstractController
 
             $em->persist($purchase);
 
-            $listProduct = new ListProduct();
+            /* $listProduct = new ListProduct();
 
             $listProduct->setPurchase($purchase);
 
-            $em->persist($listProduct);
+            $em->persist($listProduct); */
 
             foreach ($detailPanier as $item) {
                 $contentList = new ContentListProduct();
 
                 $contentList->setProduct($item->getProduct());
                 $contentList->setQuantity($item->getQty());
-                $contentList->setListProduct($listProduct);
+                // $contentList->setListProduct($listProduct);
                 $contentList->setPurchase($purchase);
 
                 $em->persist($contentList);
