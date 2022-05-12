@@ -53,7 +53,7 @@ class PaymentResultController extends AbstractController
 
             $em->flush();
         }
-        #{Apres le paiement, vidé le panier}#
+        #{Apres le paiement, vider le panier}#
         $handleCart->emptyCart();
 
         return $this->render("customer/purchase/thank_you.html.twig");
