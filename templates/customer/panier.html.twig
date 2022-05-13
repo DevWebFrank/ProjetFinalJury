@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Mon panier
+{% block title %}Panier = Beauty-shop
 {% endblock %}
 
 {% block body %}
@@ -9,23 +9,23 @@
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-md-12 mb-3">
-					<h3 class="text-center">Mon panier</h3>
+					<h1 class="text-center h130px">Mon panier</h1>
 				</div>
 
 				{% include "_messages_flash.html.twig" %}
 
 				<div class="card-body mb-3">
-					{% if detailProducts | length > 0 %}
-						<div class="table-responsive">
-							<table class="table tablePanier">
-								<thead>
-									<tr>
-										<th scope="col">Produit</th>
-										<th scope="col" class="text-center">Prix Unitaire</th>
-										<th scope="col" class="text-center">Quantité</th>
-										<th scope="col" class="text-center">Total</th>
-									</tr>
-								</thead>
+					<div class="table-responsive">
+						<table class="table tablePanier">
+							<thead>
+								<tr>
+									<th scope="col">Produit</th>
+									<th scope="col" class="text-center">Prix Unitaire</th>
+									<th scope="col" class="text-center">Quantité</th>
+									<th scope="col" class="text-center">Total</th>
+								</tr>
+							</thead>
+							{% if detailProducts | length > 0 %}
 								<tbody>
 									{% for item in detailProducts %}
 										<tr>
@@ -71,11 +71,11 @@
 										</th>
 									</tr>
 								</tbody>
-							</table>
-						</div>
-					{% else %}
-						<p>Votre panier est vide</p>
-					{% endif %}
+							{% else %}
+								<h2 class="h230px textGreen text-center">Votre panier est vide</h2>
+							{% endif %}
+						</table>
+					</div>
 				</div>
 				<!-- FIN CARD-BODY-->
 				<div class="col-12 d-flex justify-content-md-end">
