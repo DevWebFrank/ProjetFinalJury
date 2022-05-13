@@ -20,6 +20,7 @@ class StripeController extends AbstractController
 
         $YOUR_DOMAIN = 'http://localhost:8000';
         // $YOUR_DOMAIN = 'https://projetjury.frank-bollea.com';
+        // $YOUR_DOMAIN = 'https://beauty-shop.frank-bollea.com';
 
         /** @var User $user */
         $user = $this->getUser();
