@@ -175,6 +175,10 @@ div {
     text-align: center;
 }
 
+.tablePanier {
+    min-width: 800px;
+}
+
 
 /* REGISTER */
 .textGreen {
