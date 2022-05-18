@@ -97,6 +97,12 @@
             "config/packages/fos_ckeditor.yaml"
         ]
     },
+    "giggsey/libphonenumber-for-php": {
+        "version": "8.12.48"
+    },
+    "giggsey/locale": {
+        "version": "2.2"
+    },
     "knplabs/knp-components": {
         "version": "v3.5.0"
     },
@@ -114,6 +120,18 @@
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
+    },
+    "odolbeau/phone-number-bundle": {
+        "version": "3.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "4388686329b81291918a948cd42891829fb1de71"
+        },
+        "files": [
+            "config/packages/misd_phone_number.yaml"
+        ]
     },
     "phar-io/manifest": {
         "version": "2.0.3"

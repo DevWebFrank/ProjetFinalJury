@@ -66,7 +66,7 @@ class HandleCart
         //Je boucle sur tous les elements de mon paniers
         foreach ($cart as $item) {
             //Je vais chercher le produit dans la bdd
-            //Grace a l'id qui dans l'item du panier
+            //Grace a l'id qui dans l'item du panier 
             $product = $this->productRepository->find($item->getId());
 
             //Je cree une classe qui va contenir mon produit reel

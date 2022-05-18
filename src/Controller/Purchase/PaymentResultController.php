@@ -28,7 +28,6 @@ class PaymentResultController extends AbstractController
 
         if (!$purchase->getInvoice()) {
 
-
             $invoice = new Invoice();
 
             $invoice->setPurchase($purchase);
@@ -50,7 +49,7 @@ class PaymentResultController extends AbstractController
 
                 $em->persist($contentInvoice);
             }
-
+            
             $em->flush();
         }
         #{Apres le paiement, vider le panier}#

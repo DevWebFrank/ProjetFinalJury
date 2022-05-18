@@ -8,10 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
@@ -32,11 +34,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
-    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut pas être vide')]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut pas être vide')]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -44,24 +46,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank(message: 'Un numéro de téléphone valide est obligatoire')]
-    #[Assert\PositiveOrZero(message: 'Votre téléphone doit contenir que des chiffres-PositiveOrZero')]
-    // #[Assert\Regex(pattern:'/[^0-9{3}]/', message: 'Votre téléphone doit contenir que des chiffres-Regex')]
-    #[Assert\Regex(pattern: '/^\(0\)[0-9]*$/', message: 'Votre téléphone doit contenir que des chiffres-Regex*$')]
     private $telephone;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Purchase::class)]
     private $purchases;
 
     #[ORM\Column(type: 'string', length: 100,)]
-    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut pas être vide')]
     private $firstName;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
-    #[Assert\NotBlank(message: 'Ces champs ne peuvent être vides')]
+    #[Assert\NotBlank(message: 'Ces champs ne peuvent pas être vides')]
     private $birthDay;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(message: 'Ce champ ne peut être vide')]
+    #[Assert\NotBlank(message: 'Ce champ ne peut pas être vide')]
     private $adresse;
 
 

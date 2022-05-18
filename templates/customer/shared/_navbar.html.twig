@@ -6,16 +6,13 @@
 		<a href="{{ path('home') }}">
 			<img class="btn btn-sm" src="{{ asset('assets/img/logoBeautyShop3.jpg') }}" alt="logo de beautyshop">
 		</a>
-
-		<!-- <a class="navbar-brand" href="{{ path('home') }}">E-Com</a> -->
-
-
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+				
+				<!-- 2 boucles if pour gérer l'affichage des boutons sur la Nav-bar suivant le role de l'internaute-->
 				{% if app.user %}
 
 					{% if app.user.roles[0] is same as "ROLE_ADMIN" %}
@@ -39,7 +36,6 @@
 
 				{% endif %}
 
-
 				{% for category in categoryRepository.findAll() %}
 
 					<li class="nav-item">
@@ -51,23 +47,23 @@
 				{% endfor %}
 			</ul>
 		</div>
-			<div class="pictoNav">
-				<a
-					class="nav-link text-white" aria-current="page" href="{{ path('profile_detail') }}">
-					<!-- Mon compte -->
-					<i class="far fa-circle-user"></i>
-				</a>
-			</div>
+		<div class="pictoNav">
+			<a
+				class="nav-link text-white" aria-current="page" href="{{ path('profile_detail') }}">
+				<!-- Mon compte -->
+				<i class="far fa-circle-user"></i>
+			</a>
+		</div>
 
-			<div class="pictoNav">
-				<a
-					class="nav-link text-white position-relative" aria-current="page" href="{{ path('cart_detail') }}">
-					<!-- Mon panier -->
-					<i class="fas fa-shopping-bag"></i>
-					<span class="position-absolute top-5 left-100 translate-middle badge rounded-pill bg-light text-dark">
-						{{ handleCart.detailPanier() | length }}
-					</span>
-				</a>
-			</div>
+		<div class="pictoNav">
+			<a
+				class="nav-link text-white position-relative" aria-current="page" href="{{ path('cart_detail') }}">
+				<!-- Mon panier -->
+				<i class="fas fa-shopping-bag"></i>
+				<span class="position-absolute top-5 left-100 translate-middle badge rounded-pill bg-light text-dark">
+					{{ handleCart.detailPanier() | length }}
+				</span>
+			</a>
+		</div>
 	</div>
 </nav>

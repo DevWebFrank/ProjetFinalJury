@@ -5,14 +5,15 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -76,7 +77,12 @@ class RegistrationFormType extends AbstractType
                         'minMessage' => 'Votre téléphone doit faire au minimum {{ limit }} chiffres.',
                         'max' => 15,
                         'maxMessage' => 'Votre téléphone doit faire au maximum {{ limit }} chiffres.'
-                    ])
+                    ]),
+
+                    new Regex([
+                        'pattern' => '/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/',
+                        'message' => 'Le mot de passe doit contenir que des chiffres et être valide.'
+                    ]),
                 ]
             ])
 
