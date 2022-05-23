@@ -16,7 +16,7 @@ class HomeController extends AbstractController
         //Je vais chercher dans la bdd les categories
         $categories = $categoryRepository->findAll();
 
-        //Je vais chercher les 8 derniers produits
+        //Je vais chercher les 6 derniers produits
         $products = $produitRepository->findBy(
             [],
             [

@@ -28,7 +28,7 @@ class ProductController extends AbstractController
     public function detailProduct(int $id, ProduitRepository $produitRepository)
     {
         //je vais chercher un produit grace à l'id que j ai recu dans les parametres de l'url
-        //Et avec l'aide du ProductRepo
+        //Et avec l'aide du ProductRepositiry
         $product = $produitRepository->find($id);
 
         //Si je le trouve pas en bdd
@@ -48,7 +48,7 @@ class ProductController extends AbstractController
         $suggestedProducts = [];
 
         //Je boucle sur les produits associés à la catégorie
-        //J'évite de mettre dans le tableau le meme produit que je presente actuellement
+        //J'évite de mettre dans le tableau le meme produit que je présente actuellement
         foreach ($productsCategory as $item) {
             if ($item !== $product) {
                 $suggestedProducts[] = $item;

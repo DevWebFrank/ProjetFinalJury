@@ -23,50 +23,53 @@
 							<h5 class="card-title">Récapitulatif des produits</h5>
 						</div>
 						<div class="card-body">
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="col">Produit</th>
-										<th scope="col">Prix Unitaire</th>
-										<th scope="col">Quantité</th>
-										<th scope="col">Total</th>
-									</tr>
-								</thead>
-								<tbody>
-									{% for item in purchase.invoice.contentInvoices %}
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
 										<tr>
-											<th>
-									detail_product 			<div class="d-flex align-items-center">
-													<img class="smallImgPurchase" src="{{ item.imageProduct }}" alt="Photo du produit">
-													<div class="d-flex flex-column align-items-center">
-														<p>{{ item.productname }}</p>
-													</div>
-												</div>
-											</th>
-											<td>{{ item.priceProduct | priceEuro }}</td>
-											<td>
-												<button class="btn btn-light">
-													{{ item.quantity }}</button>
-											</td>
-											<td>{{ item.total | priceEuro }}</td>
+											<th scope="col">Produit</th>
+											<th scope="col">Prix Unitaire</th>
+											<th scope="col">Quantité</th>
+											<th scope="col">Total</th>
 										</tr>
-									{% endfor %}
+									</thead>
+									<tbody>
+										{% for item in purchase.invoice.contentInvoices %}
+											<tr>
+												<th>
+													detail_product
+													<div class="d-flex align-items-center">
+														<img class="smallImgPurchase" src="{{ item.imageProduct }}" alt="Photo du produit">
+														<div class="d-flex flex-column align-items-center">
+															<p>{{ item.productname }}</p>
+														</div>
+													</div>
+												</th>
+												<td>{{ item.priceProduct | priceEuro }}</td>
+												<td>
+													<button class="btn btn-light">
+														{{ item.quantity }}</button>
+												</td>
+												<td>{{ item.total | priceEuro }}</td>
+											</tr>
+										{% endfor %}
 
-									<tr>
-										<th colspan="2"></th>
-										<th>
-											<p>
-												<strong>Sous total</strong>
-											</p>
-										</th>
-										<th>
-											<p>
-												<strong>{{ purchase.invoice.total | priceEuro}}</strong>
-											</p>
-										</th>
-									</tr>
-								</tbody>
-							</table>
+										<tr>
+											<th colspan="2"></th>
+											<th>
+												<p>
+													<strong>Sous total</strong>
+												</p>
+											</th>
+											<th>
+												<p>
+													<strong>{{ purchase.invoice.total | priceEuro}}</strong>
+												</p>
+											</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -77,11 +80,16 @@
 							<h5 class="card-title">Adresse de livraison</h5>
 						</div>
 						<div class="card-body">
-							<p>Rue : {{ purchase.street }}</p>
-							<p>Ville : {{ purchase.city }}</p>
-							<p>Code postal : {{ purchase.postalCode }}</p>
-							<p>Pays : {{ purchase.country }}</p>
-							<p>Téléphone : {{ purchase.telephone }}</p>
+							<p>Rue :
+								{{ purchase.street }}</p>
+							<p>Ville :
+								{{ purchase.city }}</p>
+							<p>Code postal :
+								{{ purchase.postalCode }}</p>
+							<p>Pays :
+								{{ purchase.country }}</p>
+							<p>Téléphone :
+								{{ purchase.telephone }}</p>
 						</div>
 					</div>
 				</div>
@@ -102,49 +110,51 @@
 
 						</div>
 						<div class="card-body">
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="col">Produit</th>
-										<th scope="col">Prix Unitaire</th>
-										<th scope="col">Quantité</th>
-										<th scope="col">Total</th>
-									</tr>
-								</thead>
-								<tbody>
-									{% for item in purchase.invoice.contentInvoices %}
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
 										<tr>
-											<th>
-												<div class="d-flex align-items-center">
-													<img class="smallImgPurchase" src="{{ item.imageProduct }}" alt="Photo du produit">
-													<div class="d-flex flex-column align-items-center ml-2">
-														<p>{{ item.productname }}</p>
-													</div>
-												</div>
-											</th>
-											<td>{{ item.priceProduct | priceEuro }}</td>
-											<td>
-												<button class="btn btn-light">
-													{{ item.quantity }}</button>
-											</td>
-											<td>{{ item.total | priceEuro }}</td>
+											<th scope="col">Produit</th>
+											<th scope="col">Prix Unitaire</th>
+											<th scope="col">Quantité</th>
+											<th scope="col">Total</th>
 										</tr>
-									{% endfor %}
-									<tr>
-										<th colspan="2"></th>
-										<th>
-											<p>
-												<strong>Sous total</strong>
-											</p>
-										</th>
-										<th>
-											<p>
-												<strong>{{ purchase.invoice.total | priceEuro}}</strong>
-											</p>
-										</th>
-									</tr>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+										{% for item in purchase.invoice.contentInvoices %}
+											<tr>
+												<th>
+													<div class="d-flex align-items-center">
+														<img class="smallImgPurchase" src="{{ item.imageProduct }}" alt="Photo du produit">
+														<div class="d-flex flex-column align-items-center ml-2">
+															<p>{{ item.productname }}</p>
+														</div>
+													</div>
+												</th>
+												<td>{{ item.priceProduct | priceEuro }}</td>
+												<td>
+													<button class="btn btn-light">
+														{{ item.quantity }}</button>
+												</td>
+												<td>{{ item.total | priceEuro }}</td>
+											</tr>
+										{% endfor %}
+										<tr>
+											<th colspan="2"></th>
+											<th>
+												<p>
+													<strong>Sous total</strong>
+												</p>
+											</th>
+											<th>
+												<p>
+													<strong>{{ purchase.invoice.total | priceEuro}}</strong>
+												</p>
+											</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 

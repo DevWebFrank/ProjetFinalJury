@@ -19,37 +19,35 @@ class RegistrationController extends AbstractController
         //Je crée une instance de la classe user
         $user = new User();
 
-        //je cree mon formulaire d'inscription
+        //je cree mon formulaire d'inscription avec l'aide de doctrine
         $form = $this->createForm(RegistrationFormType::class, $user);
-        
+
         //Je gere la requete et les infos du formulaire
         $form->handleRequest($request);
 
-        //Si le formulaire a ete soumis
+        //Si le formulaire a ete soumis et valide
         if ($form->isSubmitted() && $form->isValid()) {
-  
+
             // Je hash le password avant de l'envoyer en base de données
             $user->setPassword(
                 //J'utilise le composant UserPasswordHasherInterface
-            $userPasswordHasher->hashPassword(
+                $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
 
-            //J'utilise le entity manager pour persister le user
+            //Je verifie toutes les données pour preparer l'enregistrement et j'utilise l'entity manager pour persister le user
             $entityManager->persist($user);
 
-             //Je fais un flush pour finaliser l'envoi du nouveau user dans la bdd
+            //Je fais un flush pour finaliser l'envoi du nouveau user dans la bdd
             $entityManager->flush();
-
-            // do anything else you need here, like send an email
 
             //Je redirige vers la page de login
             return $this->redirectToRoute('app_login');
-        } 
+        }
 
-        
+
         //Si je viens d'arriver sur la page, on affiche la vue
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
