@@ -13,20 +13,15 @@
 				<div class="col-md-6">
 					<div class="card">
 						<a href="{{ path('profile_image_edit')}}">
-
 							<img {% if (app.user.imagePath is same as null) or (app.user.imagePath is same as "") %} src="https://png.pngtree.com/png-vector/20190803/ourlarge/pngtree-avatar-user-basic-abstract-circle-background-flat-color-icon-png-image_1647265.jpg" {% else %} src="{{ app.user.imagePath }}" {% endif %} class="card-img-top imgprofile" alt="image_category">
-
 						</div>
 					</div>
 				</a>
-
-
 				<div class="card mt-3">
 					<div class="card-header">
 						<h5>Informations personnelles de
 							{{ app.user.firstname }}
 							{{ app.user.name }}</h5>
-
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -56,7 +51,6 @@
 						</p>
 					</div>
 				</div>
-
 			</div>
 
 			<div class="col-sm-12 col-md-6">

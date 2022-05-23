@@ -41,7 +41,7 @@ class AdminProductController extends AbstractController
         //demande de traitement de la saisie du formulaire
         $form->handleRequest($request);
 
-        //si le formulaire et soumis et qu'il est valide
+        //si le formulaire est soumis et qu'il est valide
         if ($form->isSubmitted() && $form->isValid()) {
             //j'indique à EM que cette objet devra etre enregistré
             $entityManager->persist($produit);
@@ -59,7 +59,7 @@ class AdminProductController extends AbstractController
         ]);
     }
 
-    // fonction qui affiche un seul produit avec {id}
+    // fonction qui affiche un seul produit avec par son {id}
     #[Route('/{id}', name: 'admin_product_show', methods: ['GET'])]
     public function show(Produit $produit): Response
     {

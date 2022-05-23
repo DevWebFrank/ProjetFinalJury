@@ -6,7 +6,7 @@ use Twig\TwigFilter;
 use Twig\Extension\AbstractExtension;
 
 class PriceEuroExtension extends AbstractExtension{
-    //
+    // j'ajoute un nouveau filtre aux tableaux des filtres Symfony
     public function getFilters()
     {
         return [
@@ -15,7 +15,7 @@ class PriceEuroExtension extends AbstractExtension{
             ])
         ];
     }
-    // je décris le comportement du flitre
+    // je décris le comportement du filtre priceEuro
     public function priceEuro($value)
     {
         $finalValue = $value / 100;
@@ -25,3 +25,4 @@ class PriceEuroExtension extends AbstractExtension{
         return $finalValue . ' €';
     }
 }
+  

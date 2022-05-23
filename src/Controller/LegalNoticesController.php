@@ -70,7 +70,7 @@ class LegalNoticesController extends AbstractController
         ]);
 
         // si condition est égale à null on redirige vers la page d'accueil
-        if (!$legalNotice) //! = different
+        if (!$legalNotice) //"!" = différent
         {
             return $this->redirectToRoute("home");
         }
@@ -87,7 +87,7 @@ class LegalNoticesController extends AbstractController
             'title' => $title
         ]);
 
-        if (!$legalNotice) //! = different
+        if (!$legalNotice) //"!" = différent
         {
             return $this->redirectToRoute("home");
         }

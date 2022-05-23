@@ -13,39 +13,42 @@
 				</div>
 				{% include "_messages_flash.html.twig" %}
 				<div class="col-12 mb-3">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">#id</th>
-								<th scope="col">Date</th>
-								<th scope="col">Total</th>
-								<th scope="col">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for item in purchases %}
-								{% if item.invoice %}
-									<tr>
-										<th>
-											{{ item.id }}
-										</th>
-										<!-- date('d-M-Y') = c'est un filtre pour ecrire la dateTime-->
-										<td>
-											{{ item.createdAt | date('d-M-Y') }}
-										</td>
-										<td>
-											{{ item.invoice.total | priceEuro }}
-										</td>
-										<td>
-											<a href="{{ path('profile_purchase_show',{'id': item.id}) }}" class="btn btn-primary">
-												<i class="fas fa-eye"> Consulter</i>
-											</a>
-										</td>
-									</tr>
-								{% endif %}
-							{% endfor %}
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">#id</th>
+									<th scope="col">Date</th>
+									<th scope="col">Total</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for item in purchases %}
+									{% if item.invoice %}
+										<tr>
+											<th>
+												{{ item.id }}
+											</th>
+											<!-- date('d-M-Y') = c'est un filtre pour ecrire la dateTime-->
+											<td>
+												{{ item.createdAt | date('d-M-Y') }}
+											</td>
+											<td>
+												{{ item.invoice.total | priceEuro }}
+											</td>
+											<td>
+												<a href="{{ path('profile_purchase_show',{'id': item.id}) }}" class="btn btn-primary">
+													<i class="fas fa-eye">
+														Consulter</i>
+												</a>
+											</td>
+										</tr>
+									{% endif %}
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

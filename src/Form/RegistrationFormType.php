@@ -92,11 +92,11 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Email'
                 ],
-                'constraints' => [
+                /* 'constraints' => [
                     new NotBlank([
                         'message' => 'Il existe déjà un compte avec cet email (FormType)',
                     ]),
-                ]
+                ] */
             ])
 
             ->add('agreeTerms', CheckboxType::class, [
